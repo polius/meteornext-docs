@@ -17,11 +17,11 @@ In a nutshell:
 - 🔎 **Inspect**: Search and filter every deployment done in the past.
 - 🔔 **Alerts**: Receive a notification whenever a deployment finishes (in-app notifications & Slack integration).
 
-![alt text](../../../assets/deployments1.png "Deployments - List")
+![alt text](../../../assets/deployments/deployments.png "Deployments - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - List</p>
 
-![alt text](../../../assets/deployments2.png "Deployments - Execution")
+![alt text](../../../assets/deployments/execution.png "Deployments - Execution")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Execution</p>
 

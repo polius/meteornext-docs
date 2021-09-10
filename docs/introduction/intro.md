@@ -7,20 +7,20 @@ slug: /
 
 Meteor Next is a multiplatform web application that fully automatizes database workload operations.
 
-- 🚀 **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
-- 🖥️ **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
-- ⚡ **Client**: A complete MySQL Client.
-- ☁️ **Utils**: Different apps like performing SQL restores from files, url or directly from Amazon S3.
-
 ## Features
+
+- **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
+- **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
+- **Client**: A complete MySQL Client.
+- **Utils**: Different apps like performing SQL restores from files, url or directly from Amazon S3.
 
 ### Deployments
 
-![alt text](../../assets/deployments1.png "Deployments - List")
+![alt text](../../assets/deployments/deployments.png "Deployments - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - List</p>
 
-![alt text](../../assets/deployments2.png "Deployments - Execution")
+![alt text](../../assets/deployments/execution.png "Deployments - Execution")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Execution</p>
 

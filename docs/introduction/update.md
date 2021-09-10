@@ -6,15 +6,11 @@ sidebar_position: 4
 
 To update Meteor Next, execute the following commands:
 
-```bash title="Stop the meteor2 container"
-docker stop $(docker ps -a -q --filter ancestor=meteor2)
+```bash title="Stop and remove the existing meteor2 container"
+docker rm -f meteor2
 ```
 
-```bash title="Remove the meteor2 container"
-docker rm $(docker ps -a -q --filter ancestor=meteor2)
-```
-
-```bash title="Create and Start the meteor2 container with the latest version"
+```bash title="Create and start the meteor2 container with the latest version"
 docker run -itd --name meteor2 -p 1234:80 meteor2/meteor2
 ```
 

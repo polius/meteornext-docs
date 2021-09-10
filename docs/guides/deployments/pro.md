@@ -152,6 +152,30 @@ def after(self, meteor, environment, region):
     pass
 ```
 
+`meteor.begin()` This method is used to start a transaction. Can be used within methods: before(), main() and after().
+
+```python
+meteor.begin()
+```
+
+`meteor.commit()` This method is used to commit a transaction. Can be used within methods: before(), main() and after().
+
+```python
+meteor.commit()
+```
+
+`meteor.rollback()` This method is used to rollback a transaction. Can be used within methods: before(), main() and after().
+
+```python
+meteor.rollback()
+```
+
+`meteor.is_error()` This method is used to check if a query in the current transaction has either succeed or failed. It returns a bool data type (true | false). Can be used within methods: before(), main() and after().
+
+```python
+meteor.is_error()
+```
+
 **USER DEFINED METHODS**
 
 In the last part of the blueprint there's some methods that may be used in some deployments. Here, if you wish, you could add more methods:
@@ -392,3 +416,35 @@ By adding an alias to the query, we tell Meteor to treat all these queries as on
 So, query alias will mostly be needed when executing queries that have arguments that their value can differ.
 
 For more information, please see the [Results](results) section.
+
+### Example 8: Using transactions
+
+**DESCRIPTION**
+
+This example shows how to create transactions and how to commit/rollback them.
+
+**BLUEPRINT**
+
+```python
+def main(self, meteor, environment, region, server, database):
+    # Start a transaction
+    meteor.begin()
+    # Execute a DML query
+    meteor.execute(query="INSERT INTO tbl VALUES ('hello')", database=database)
+    # Rollback the transaction
+    meteor.rollback()
+    # Start another transaction
+    meteor.begin()
+    # Execute a DML query
+    meteor.execute(query="INSERT INTO tbl VALUES ('hello')", database=database)
+    # Commit the transaction
+    meteor.commit()
+```
+
+Deploying the previous blueprint will actually execute the INSERT query only once. The first one will be rollbacked and the second one will be commited.
+
+:::info
+
+Bear in mind that if we start a transaction into an already started one, all the queries executed in the previous transaction will be rollbacked and then a new transaction will start.
+
+:::
