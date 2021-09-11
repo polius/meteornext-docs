@@ -25,6 +25,6 @@ In a nutshell:
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Execution</p>
 
-![alt text](../../../assets/deployments3.png "Deployments - Results")
+![alt text](../../../assets/deployments/results.png "Deployments - Results")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Results</p>
