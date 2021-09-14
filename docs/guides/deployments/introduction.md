@@ -9,7 +9,7 @@ Deployments is one of the most interesting apps in Meteor Next. Gives you the ab
 In a nutshell:
 
 - 🚀 **Fast**: Executions make use of parallellism + cross-region to balance the workload to different servers and to maximize the throughput without affecting the current performance.
-- 💪 **Resilience**: Executions have the capacity to recover quickly from difficulties (network and query errors).
+- 💪 **Resilient**: Executions have the capacity to recover quickly from difficulties (network and query errors).
 - 🐍 **Python**: Add Python logic to deployments for complex executions.
 - ✨ **Transform**: Perform searchs and data transformation with the execution results.
 - ✉️ **Share**: Share a deployment results with other users.

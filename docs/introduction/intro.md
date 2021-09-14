@@ -30,7 +30,7 @@ Meteor Next is a multiplatform web application that fully automatizes database w
 
 ### Monitoring
 
-![alt text](../../assets/monitoring.png "Monitoring")
+![alt text](../../assets/monitoring/monitoring.png "Monitoring")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Monitoring - List</p>
 
