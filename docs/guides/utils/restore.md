@@ -84,7 +84,7 @@ To also reduce drastically the execution time needed to finish a restore, all th
 
 ## Requirements
 
-Theres some requirements that have to be fullfilled in order to perform restores in different regions.
+There are some requirements that have to be fullfilled in order to perform restores in different regions.
 
 This behaviour happens when we want to do a restore in a server which its region has the `SSH Tunnel` option enabled. In this case we will have to install some components in that SSH machine before starting the restore.
 

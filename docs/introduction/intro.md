@@ -36,17 +36,17 @@ Meteor Next is a multiplatform web application that fully automatizes database w
 
 ### Utils
 
-![alt text](../../assets/restore1.png "Restore - List")
+![alt text](../../assets/utils/restore/restore.png "Restore - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Restore - List</p>
 
-![alt text](../../assets/restore2.png "Restore - Execution")
+![alt text](../../assets/utils/restore/restore-info-cloud.png "Restore - Information")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Restore - Execution</p>
 
 ### Client
 
-![alt text](../../assets/client.png "Client")
+![alt text](../../assets/client/client.png "Client")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Client - Executing a query</p>
 
