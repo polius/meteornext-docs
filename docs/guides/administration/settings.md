@@ -6,10 +6,10 @@ sidebar_position: 1
 
 The Settings view is used to manage some application global parameters:
 
-- License
-- SQL
-- Files
-- Security
+- [License](#license)
+- [SQL](#sql)
+- [Files](#files)
+- [Security](#security)
 
 ## License
 
