@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # Inventory
 
+The Inventory view is used to manage all the resources (servers, regions, environments, auxiliary connections, clod keys) for all Meteor accounts.
+
 ![alt text](../../../assets/administration/admin-inventory-servers.png "Admin - Inventory - Servers")
 
 ![alt text](../../../assets/administration/admin-inventory-servers-columns.png "Admin - Inventory - Servers Columns")

@@ -27,6 +27,8 @@ The SQL section shows the credentials (in read-only) where Meteor Next is stored
 
 The Files section shows information about the path where the application files are stored.
 
+![alt text](../../../assets/administration/admin-settings-files.png "Admin - Settings - Files")
+
 These are the fields that can be edited:
 
 **Absolute Path**
@@ -48,8 +50,6 @@ If you would like to store all the values in Amazon S3, we recommend to set this
 **Store in Amazon S3**
 
 Enable this option to store the deployment results into Amazon S3. Althought Meteor can work without Amazon S3, we strongly recommended to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the deployment results will be preserved when you perform a Meteor update.
-
-![alt text](../../../assets/administration/admin-settings-files.png "Admin - Settings - Files")
 
 ## Security
 

@@ -245,6 +245,25 @@ def main(self, meteor, environment, region, server, database):
         meteor.execute(query=self.queries['2'], args={"name":'Jeanna',"salary":1500}, database=database)
 ```
 
+:::caution
+If you want to execute a query that contains an argument and you also want to add the character `%` in some part of the query, since Python detects the `%` value as another parameter, to prevent this behaviour add two `%` instead of one.
+
+The following example is getting all the employees with a salary of 1000 that their name starts with the letter a.
+
+```python
+def __init__(self):
+    self.queries = {
+        '1': "SELECT * FROM employees WHERE salary = %s AND name LIKE 'a%%'",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    if database == 'emp':
+        meteor.execute(query=self.queries['1'], args=(1000), database=database)
+```
+
+Note that we doubled the character `%` in `LIKE 'a%%'`.
+:::
+
 ### Example 3: Handling query results
 
 **DESCRIPTION**
