@@ -136,7 +136,7 @@ Arguments:
 
 **ADDITIONAL COMPONENTS**
 
-Here are some additional components that may be useful in some deployments. In the [Examples](examples) section we're gonna show some uses to better understand it. 
+Here are some additional components that may be useful in some deployments. In the [Examples](#examples) section we're gonna show some uses to better understand it.
 
 `before(...)`: This method is executed once per Region before all main() executions.
 
@@ -201,9 +201,9 @@ def dict2str(self, data):
     return json.dumps(data, separators=(',', ':'))
 ```
 
----
+## Examples
 
-Let's see some examples to better understand how all of this works together:
+Let's see some examples to better understand how all of this works together.
 
 ### Example 1: Execute a query to a database
 
