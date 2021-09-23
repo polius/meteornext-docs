@@ -21,7 +21,7 @@ You can also click a server to get further details.
 
 ![alt text](../../../assets/monitoring/monitoring-details.png "Monitoring - Details")
 
-**SETTINGS**
+## Settings
 
 There are some settings that can be defined:
 
@@ -31,13 +31,13 @@ There are some settings that can be defined:
 
 ![alt text](../../../assets/monitoring/monitoring-settings.png "Monitoring - Settings")
 
-**SERVERS**
+## Servers
 
 Here we can select which servers of our inventory have to be monitored.
 
 ![alt text](../../../assets/monitoring/monitoring-servers.png "Monitoring - Servers")
 
-**FILTER**
+## Filter
 
 This option is used to filter the servers in the list. The available options are:
 
@@ -48,7 +48,7 @@ This option is used to filter the servers in the list. The available options are
 
 ![alt text](../../../assets/monitoring/monitoring-filter.png "Monitoring - Filter")
 
-**EVENTS**
+## Events
 
 This option shows a dialog with all the events happened in the last 15 days for all servers selected to be monitored.
 
