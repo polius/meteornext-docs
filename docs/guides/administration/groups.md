@@ -62,7 +62,7 @@ Here you can set the permissions affecting the Deployments section.
 
 Here we can set the limits of all the deployment executions.
 
-- **Coins per execution**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment then it will have to wait for the next day or that some admin gives him/her more coins. 
+- **Coins per execution**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment then it will have to wait for the next day or that some admin gives him/her more coins.
 - **Execution threads**: How many parallel connections will be spawned at database level. A value of 1 means that the execution will go database per database, one by one (sequentially). A value of 2 means that the execution will perform the deployment in two databases at the same time. And so on. So, the larger the value, the faster the execution will go and the less time it will take to finish. But keep in mind that also the larger the value, the more resources will consume.
 
 The following screenshot shows a graphic example about having `Execution threads = 2`. We can see that for each server, the execution will apply the deployment in two databases at the same time.

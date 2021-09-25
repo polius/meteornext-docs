@@ -85,7 +85,8 @@ Imagine that after executing this query we would like to get the employee that e
 // DB: paris
 [{"id":"1","name":"Maria","salary":1500},{"id":"2","name":"George","salary":3000}]
 // DB: new_york
-[{"id":"1","name":"April","salary":1200},{"id":"2","name":"Richard","salary":5000}]// DB: san_francisco
+[{"id":"1","name":"April","salary":1200},{"id":"2","name":"Richard","salary":5000}]
+// DB: san_francisco
 [{"id":"1","name":"Roger","salary":800}]
 // DB: tokyo
 [{"id":"1","name":"Oliver","salary":1000},{"id":"2","name":"Kenna","salary":1600}]
