@@ -37,7 +37,7 @@ This value defaults to `/root/files`. It's the path within the Meteor container 
 
 This value does not need to be changed if you decide to store these resources into Amazon S3. If you would like to choose this storage engine you should enable the `Store in Amazon S3` option and fill the necessary fields.
 
-On the other hand if you prefer to use the local disk storage over Amazon S3, then we recommend that you change this value for the [Docker's mounted volume](../../introduction/install#local). By using the mounted volume path, you won't lose all the deployment results when you perform a Meteor update.
+On the other hand if you prefer to use the local disk storage over Amazon S3, then we recommend that you change this value for the [Docker's mounted volume](../../getting-started/install#local). By using the mounted volume path, you won't lose all the deployment results when you perform a Meteor update.
 
 **Retention Days**
 
