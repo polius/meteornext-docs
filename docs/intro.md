@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# What is Meteor Next?
+# Introduction
 
 Meteor Next is a multiplatform web application that fully automatizes database workload operations.
 
@@ -16,37 +16,37 @@ Meteor Next is a multiplatform web application that fully automatizes database w
 
 ### Deployments
 
-![alt text](../../assets/deployments/deployments.png "Deployments - List")
+![alt text](../assets/deployments/deployments.png "Deployments - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - List</p>
 
-![alt text](../../assets/deployments/execution.png "Deployments - Execution")
+![alt text](../assets/deployments/execution.png "Deployments - Execution")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Execution</p>
 
-![alt text](../../assets/deployments/results.png "Deployments - Results")
+![alt text](../assets/deployments/results.png "Deployments - Results")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Results</p>
 
 ### Monitoring
 
-![alt text](../../assets/monitoring/monitoring.png "Monitoring")
+![alt text](../assets/monitoring/monitoring.png "Monitoring")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Monitoring - List</p>
 
 ### Utils
 
-![alt text](../../assets/utils/restore/restore.png "Restore - List")
+![alt text](../assets/utils/restore/restore.png "Restore - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Restore - List</p>
 
-![alt text](../../assets/utils/restore/restore-info-cloud.png "Restore - Information")
+![alt text](../assets/utils/restore/restore-info-cloud.png "Restore - Information")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Restore - Execution</p>
 
 ### Client
 
-![alt text](../../assets/client/client.png "Client")
+![alt text](../assets/client/client.png "Client")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Client - Executing a query</p>
 
