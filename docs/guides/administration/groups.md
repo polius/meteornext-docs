@@ -83,11 +83,15 @@ The following screenshot shows a graphic example about having `Execution threads
 
 Here you can set the permissions affecting the Monitoring section.
 
+![alt text](../../../assets/administration/admin-groups-new-monitoring.png "Admin - Groups - New (Monitoring)")
+
 **RIGHTS**
 
 - **Access Monitoring**: If this option is enabled all user's contained in this group will be able to access the monitoring section and the monitoring button will be visible at the top bar.
 
-![alt text](../../../assets/administration/admin-groups-new-monitoring.png "Admin - Groups - New (Monitoring)")
+**LIMITS**
+
+- **Data Collection Interval (seconds)**: The interval of seconds that have to pass to retrieve again all server's status. The value must be greater or equal than 10.
 
 ### Utils
 
@@ -123,4 +127,5 @@ Here you can set the permissions affecting the Client section.
 
 - **Track Queries**: Enable this option to store all the queries that are being executed in the Client section. It's useful if you want to know which kind of queries your users are executing. Also it can be useful in case of someone executes a query and breaks something. In this way you will know exactly what queries the user executed and this information may come in handy in order to solve the issue.
     - **Tracking Mode**: This option can be either `All Queries` to track every query the users execute or `All Queries (exclude SELECTs)` to exclude SELECTs and EXPLAINs to be tracked.
+    - **Tracking Filter**: This option is used to filter which queries are meant to be tracked. The available options are `All Queries`, `Succeeded` or `Failed`.
     - **Tracking Retention Days**: This value is used to determine how many days we would like to retain the queries tracked.

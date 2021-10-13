@@ -25,7 +25,6 @@ You can also click a server to get further details.
 
 There are some settings that can be defined:
 
-- **Data Collection Interval (seconds)**: The seconds that have to pass to retrieve again the server's status. The value must be greater or equal than 9.
 - **Servers per line**: The amount of servers to be displayed per line.
 - **Slack Notifications**: Enable to receive an Slack message everytime a server changes its status (available, unavailable, parameters changed, restart).
 
