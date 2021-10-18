@@ -373,7 +373,7 @@ def main(self, meteor, environment, region, server, database):
 
 **DESCRIPTION**
 
-This example shows how to retrieve a var's value in some point of the template for all databases.
+This example shows how to retrieve variable values.
 
 **BLUEPRINT**
 
@@ -385,10 +385,10 @@ def main(self, meteor, environment, region, server, database):
     # Example 2: Debugging a dictionary.
     data = {'a': 1, 'b': 2}
     meteor.execute(query="SELECT %s AS 'data'", args=str(data), database=database, alias='DEBUG2')
-    # Example 3: Debugging a dictionary (+ extending its values to the INFORMATION table).
+    # Example 3: Debugging a dictionary (+ extending its values in the Transformation section).
     data = {'a': 1, 'b': 2}
     meteor.execute(query="SELECT " + ','.join([f"%s AS '{k}'" for k in data.keys()]), args=list(data.values()), database=database, alias='DEBUG3')
-    # Example 4: Debugging a list of dictionaries (+ extending its values to the INFORMATION table).
+    # Example 4: Debugging a list of dictionaries (+ extending its values in the Transformation section).
     data = [{'a': 1, 'b': 2}, {'a': 3, 'b': 4}]
     for i in data:
         meteor.execute(query="SELECT " + ','.join([f"%s AS '{k}'" for k in i.keys()]), args=list(i.values()), database=database, alias='DEBUG4')
