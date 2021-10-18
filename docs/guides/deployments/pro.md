@@ -379,14 +379,44 @@ This example shows how to retrieve a var's value in some point of the template f
 
 ```python
 def main(self, meteor, environment, region, server, database):
-    # ... some lines of code
-    data = # some calculation
-    # To retrieve the data value for debugging, execute the following line:
-    meteor.execute(query="SELECT %s AS 'myvar'", args=(data), database=database)
-    # ... some lines of code
+    # Example 1: Debugging a string (this example works for all kind of variables).
+    data = 'hello world'
+    meteor.execute(query="SELECT %s AS 'data'", args=str(data), database=database, alias='DEBUG1')
+    # Example 2: Debugging a dictionary.
+    data = {'a': 1, 'b': 2}
+    meteor.execute(query="SELECT %s AS 'data'", args=str(data), database=database, alias='DEBUG2')
+    # Example 3: Debugging a dictionary (+ extending its values to the INFORMATION table).
+    data = {'a': 1, 'b': 2}
+    meteor.execute(query="SELECT " + ','.join([f"%s AS '{k}'" for k in data.keys()]), args=list(data.values()), database=database, alias='DEBUG3')
+    # Example 4: Debugging a list of dictionaries (+ extending its values to the INFORMATION table).
+    data = [{'a': 1, 'b': 2}, {'a': 3, 'b': 4}]
+    for i in data:
+        meteor.execute(query="SELECT " + ','.join([f"%s AS '{k}'" for k in i.keys()]), args=list(i.values()), database=database, alias='DEBUG4')
 ```
 
-After executing the deployment, in the Results table you are going to see this var's name for all environment databases.
+The following screenshot shows the result by executing the above code. 
+
+![alt text](../../../assets/deployments/debugging_results.png "Debugging - Results")
+
+To better see its values, click the Transformation icon and choose the query to display.
+
+![alt text](../../../assets/deployments/debugging_transformation.png "Debugging - Transformation")
+
+Here's the transformation of the first query named 'DEBUG1'.
+
+![alt text](../../../assets/deployments/debugging1.png "Debugging 1")
+
+Here's the transformation of the second query named 'DEBUG2'.
+
+![alt text](../../../assets/deployments/debugging2.png "Debugging 2")
+
+Here's the transformation of the third query named 'DEBUG3'.
+
+![alt text](../../../assets/deployments/debugging3.png "Debugging 3")
+
+Here's the transformation of the fourth query named 'DEBUG4'.
+
+![alt text](../../../assets/deployments/debugging4.png "Debugging 4")
 
 ### Example 7: Using alias
 
