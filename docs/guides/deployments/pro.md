@@ -464,7 +464,7 @@ By adding an alias to the query, we tell Meteor to treat all these queries as on
 
 So, query alias will mostly be needed when executing queries that have arguments that their value can differ.
 
-For more information, please see the [Results](results) section.
+For more information, please see the [Results](../results) section.
 
 ### Example 8: Using transactions
 
