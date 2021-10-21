@@ -275,7 +275,7 @@ This example shows how to get the result of an executed query and how to insert 
 ```python
 def __init__(self):
     self.queries = {
-        '1': "SELECT id, name FROM employees LIMIT 2",
+        '1': "SELECT id, name, salary FROM employees LIMIT 2",
         '2': "INSERT INTO employees_test VALUES (id, name) (%s, %s)" 
     }
 
