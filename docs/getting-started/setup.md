@@ -18,7 +18,7 @@ After entering the URL the Login page will be shown. At this point click the `IN
 
 ![alt text](../../assets/introduction/install1.png "Install - Login")
 
-The first step is to enter a valid license (Email & Key).
+The first step is to enter a valid license (Access Key & Secret Key).
 
 ![alt text](../../assets/introduction/install2.png "Install - License")
 

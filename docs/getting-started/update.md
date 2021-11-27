@@ -26,14 +26,14 @@ If you want to skip filling again all the `INSTALL` steps, start the meteor2 con
 
 ```
 docker run -itd --name meteor2 -p 1234:80 \
--e LIC_EMAIL=<license_email> \
--e LIC_KEY=<license_key> \
--e SQL_ENGINE=<sql_engine> \
--e SQL_HOST=<sql_host> \
--e SQL_USER=<sql_user> \
--e SQL_PASS=<sql_password> \
--e SQL_PORT=<sql_port> \
--e SQL_DB=<sql_database> \
+-e LIC_ACCESS_KEY="<license_access_key>" \
+-e LIC_SECRET_KEY="<license_secret_key>" \
+-e SQL_ENGINE="<sql_engine>" \
+-e SQL_HOST="<sql_host>" \
+-e SQL_USER="<sql_user>" \
+-e SQL_PASS="<sql_password>" \
+-e SQL_PORT="<sql_port>" \
+-e SQL_DB="<sql_database>" \
 meteor2/meteor2
 ```
 
@@ -41,14 +41,14 @@ Example:
 
 ```
 docker run -itd --name meteor2 -p 1234:80 \
--e LIC_EMAIL=license@test.com \
--e LIC_KEY=12345abcd \
--e SQL_ENGINE=MySQL \
--e SQL_HOST=172.16.2.121 \
--e SQL_USER=meteor2 \
--e SQL_PASS=supersecret \
--e SQL_PORT=3306 \
--e SQL_DB=meteor2 \
+-e LIC_ACCESS_KEY="0000-0000-0000-0000" \
+-e LIC_SECRET_KEY="12345abcd" \
+-e SQL_ENGINE="MySQL" \
+-e SQL_HOST="172.16.2.121" \
+-e SQL_USER="meteor2" \
+-e SQL_PASS="supersecret" \
+-e SQL_PORT="3306" \
+-e SQL_DB="meteor2" \
 meteor2/meteor2
 ```
 

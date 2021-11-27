@@ -37,17 +37,17 @@ You can now move to the next section: [SETUP](setup)
 
 These are all the environment variables that meteor2 supports:
 
-| Argument | Description |
-| -------- | :---------- |
-| `LIC_EMAIL`  | The license email |
-| `LIC_KEY`    | The license key |
-| `SQL_ENGINE` | The server's engine [MySQL \| Aurora MySQL] |
-| `SQL_HOST`   | The server's hostname  |
-| `SQL_USER`   | The server's username |
-| `SQL_PASS`   | The server's password |
-| `SQL_PORT`   | The server's port |
-| `SQL_DB`     | The server's database where meteor2 will be stored |
-| `SECURE=1`   | Force app to serve all requests over HTTPS (make sure you have previously configured a HTTPs Reverse Proxy pointing to the meteor2 container before enabling this flag) |
+| Argument         | Description |
+| ---------------- | :---------- |
+| `LIC_ACCESS_KEY` | The license access key |
+| `LIC_SECRET_KEY` | The license secret key |
+| `SQL_ENGINE`     | The server's engine [MySQL \| Aurora MySQL] |
+| `SQL_HOST`       | The server's hostname  |
+| `SQL_USER`       | The server's username |
+| `SQL_PASS`       | The server's password |
+| `SQL_PORT`       | The server's port |
+| `SQL_DB`         | The server's database where meteor2 will be stored |
+| `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured a HTTPs Reverse Proxy pointing to the meteor2 container before enabling this flag) |
 
 Examples:
 
@@ -57,14 +57,14 @@ docker run -itd --name meteor2 -p 1234:80 -e SECURE=1 meteor2/meteor2
 
 ```bash title="Starting Meteor from environment variables instead of the INSTALL GUI"
 docker run -itd --name meteor2 -p 1234:80 \
--e LIC_EMAIL=license@test.com \
--e LIC_KEY=12345abcd \
--e SQL_ENGINE=MySQL \
--e SQL_HOST=172.16.2.121 \
--e SQL_USER=meteor2 \
--e SQL_PASS=supersecret \
--e SQL_PORT=3306 \
--e SQL_DB=meteor2 \
+-e LIC_ACCESS_KEY="license@test.com" \
+-e LIC_SECRET_KEY="12345abcd" \
+-e SQL_ENGINE="MySQL" \
+-e SQL_HOST="172.16.2.121" \
+-e SQL_USER="meteor2" \
+-e SQL_PASS="supersecret" \
+-e SQL_PORT="3306" \
+-e SQL_DB="meteor2" \
 meteor2/meteor
 ```
 
