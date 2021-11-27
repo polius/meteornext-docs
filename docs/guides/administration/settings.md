@@ -13,7 +13,7 @@ The Settings view is used to manage some application global parameters:
 
 ## License
 
-The License section shows information (in read-only) related of the license. We can see if the copy of the Meteor Next that we're using is activated and the day that the license will expire.
+The License section shows information (in read-only) related of the license. We can see if the copy of the Meteor Next that we're using is activated and the amount of resources we currently have available.
 
 ![alt text](../../../assets/administration/admin-settings-license.png "Admin - Settings - License")
 
