@@ -57,12 +57,12 @@ docker run -itd --name meteor2 -p 1234:80 -e SECURE=1 meteor2/meteor2
 
 ```bash title="Starting Meteor from environment variables instead of the INSTALL GUI"
 docker run -itd --name meteor2 -p 1234:80 \
--e LIC_ACCESS_KEY="license@test.com" \
--e LIC_SECRET_KEY="12345abcd" \
+-e LIC_ACCESS_KEY="0000-0000-0000-0000" \
+-e LIC_SECRET_KEY="ASuperSecretKey" \
 -e SQL_ENGINE="MySQL" \
 -e SQL_HOST="172.16.2.121" \
 -e SQL_USER="meteor2" \
--e SQL_PASS="supersecret" \
+-e SQL_PASS="yourMySQLPassword" \
 -e SQL_PORT="3306" \
 -e SQL_DB="meteor2" \
 meteor2/meteor
