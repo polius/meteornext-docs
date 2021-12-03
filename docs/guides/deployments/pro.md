@@ -42,9 +42,9 @@ class blueprint:
         }
 
     #######################################################
-    # Executed once per Region before all main executions #
+    # Executed once per Server before all main executions #
     #######################################################
-    def before(self, meteor, environment, region):
+    def before(self, meteor, environment, region, server):
         pass
 
     ##############################
@@ -54,9 +54,9 @@ class blueprint:
         pass
 
     ######################################################
-    # Executed once per Region after all main executions #
+    # Executed once per Server after all main executions #
     ######################################################
-    def after(self, meteor, environment, region):
+    def after(self, meteor, environment, region, server):
         pass
 
     ########################
@@ -120,7 +120,7 @@ def main(self, meteor, environment, region, server, database):
     pass
 ```
 
-`meteor.execute(...)` This method is used to execute SQL queries. Can be used within methods: before(), main() and after().
+`meteor.execute(...)` This method is used to execute SQL queries.
 
 ```python
 meteor.execute(query=self.queries['1'], args=None, database=None, auxiliary=None, alias=None)
@@ -138,39 +138,39 @@ Arguments:
 
 Here are some additional components that may be useful in some deployments. In the [Examples](#examples) section we're gonna show some uses to better understand it.
 
-`before(...)`: This method is executed once per Region before all main() executions.
+`before(...)`: This method is executed once per Server before all main() executions.
 
 ```python
-def before(self, meteor, environment, region):
+def before(self, meteor, environment, region, server):
     pass
 ```
 
-`after(...)`: This method is executed once per Region after all main() executions.
+`after(...)`: This method is executed once per Server after all main() executions.
 
 ```python
-def after(self, meteor, environment, region):
+def after(self, meteor, environment, region, server):
     pass
 ```
 
-`meteor.begin()` This method is used to start a transaction. Can be used within methods: before(), main() and after().
+`meteor.begin()` This method is used to start a transaction.
 
 ```python
 meteor.begin()
 ```
 
-`meteor.commit()` This method is used to commit a transaction. Can be used within methods: before(), main() and after().
+`meteor.commit()` This method is used to commit a transaction.
 
 ```python
 meteor.commit()
 ```
 
-`meteor.rollback()` This method is used to rollback a transaction. Can be used within methods: before(), main() and after().
+`meteor.rollback()` This method is used to rollback a transaction.
 
 ```python
 meteor.rollback()
 ```
 
-`meteor.is_error()` This method is used to check if a query in the current transaction has either succeed or failed. It returns a bool data type (true | false). Can be used within methods: before(), main() and after().
+`meteor.is_error()` This method is used to check if a query in the current transaction has either succeed or failed. It returns a bool data type (true | false).
 
 ```python
 meteor.is_error()
@@ -358,7 +358,7 @@ def __init__(self):
         '2': "INSERT INTO customer_languages (id, name) VALUES (%s, %s)"
     }
 
-def before(self, meteor, environment, region):
+def before(self, meteor, environment, region, server):
     # By executing this query inside this method, all databases into the main() method will be able to access this variable. Doing it this way we avoid that this query is executed by each database.
     self.languages = meteor.execute(query=self.queries['1'], database='core', auxiliary='core01-prod')
     # self.languages = [{"id": 1, "name": 'english'},{"id": 2, "inc": 'spanish'}]
