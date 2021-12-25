@@ -396,11 +396,11 @@ def main(self, meteor, environment, region, server, database):
 
 The following screenshot shows the result by executing the above code. 
 
-![alt text](../../../assets/deployments/debugging_results.png "Debugging - Results")
+![alt text](../../../assets/deployments/debugging-results.png "Debugging - Results")
 
 To better see its values, click the Transformation icon and choose the query to display.
 
-![alt text](../../../assets/deployments/debugging_transformation.png "Debugging - Transformation")
+![alt text](../../../assets/deployments/debugging-transformation.png "Debugging - Transformation")
 
 Here's the transformation of the first query named 'DEBUG1'.
 

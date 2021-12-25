@@ -22,16 +22,18 @@ The following screenshot shows an example of a Meteor file exported from the res
 
 ## Building a Meteor file
 
-A Meteor file is written in javascript. Contains two variables:
+A Meteor file is written in JSON. Contains two keys:
 
 - **DATA**: An array of objects (each one will be transformed into a row).
 - **COLUMNS**: An array of strings containing the order of the columns to be displayed. 
 
 Here's an example of a valid Meteor file.
 
-```js
-var DATA = [{"id":"1","name":"Barcelona"},{"id":"2","name":"New York"},{"id":"3","name":"Tokyo"}]
-var COLUMNS = ["id","name"]
+```json
+{
+    "DATA": [{"id":"1","name":"Barcelona"},{"id":"2","name":"New York"},{"id":"3","name":"Tokyo"}],
+    "COLUMNS": ["id","name"]
+}
 ```
 
 The following screenshot shows how this file would be displayed if it was imported into the Viewer.

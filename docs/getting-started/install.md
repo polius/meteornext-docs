@@ -101,7 +101,7 @@ This option is configured inside the application once the [`SETUP`](setup) steps
 
 Head to the Admin section [`http://host-ip:1234/admin`](#) → SETTINGS → FILES.
 
-![alt text](../../assets/introduction/settings_files.png "Admin - Settings - Files")
+![alt text](../../assets/introduction/settings-files.png "Admin - Settings - Files")
 
 Before going further, create an AWS IAM user with **Programmatic access**.
 

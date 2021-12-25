@@ -24,7 +24,15 @@ The first step is to enter a valid license (Access Key & Secret Key).
 
 After entering a valid license, it's now time to enter the server credentials to store the app's database.
 
-![alt text](../../assets/introduction/install3.png "Install - Server")
+![alt text](../../assets/introduction/install3.1.png "Install - Server")
+
+In case the database exists in the server a dialog will appear with two options:
+
+- **Install Meteor Next**: Select this option if it's the first time that you install Meteor Next. This option will delete and recreate the database with a fresh installation of Meteor Next.
+
+- **Update Meteor Next**: Select this option if you are performing a Meteor Next upgrade. This option will use the selected database that contains an existing Meteor Next installation.
+
+![alt text](../../assets/introduction/install3.2.png "Install - Server (Options)")
 
 The last step is to create the admin account by entering the username and password.
 
