@@ -20,6 +20,8 @@ This command starts a local development server and opens up a browser window. Mo
 
 ```console
 npx docusaurus --version
+npm update
+npm run start
 ```
 
 ## Build
@@ -31,6 +33,12 @@ npm run build
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ## Deployment
+
+```
+python3 transfer.py
+```
+
+Deprecated
 
 ```console
 rm -rf /var/www/meteor2.io/docs/ && mv /home/ec2-user/git/meteor2-docs/build/ /var/www/meteor2.io/docs/ && echo -e 'User-agent: *\nDisallow: /' > /var/www/meteor2.io/docs/robots.txt
