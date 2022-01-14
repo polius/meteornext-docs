@@ -29,14 +29,14 @@ The [environment](../inventory/environments) to be applied.
 A Python template to write the deployment.
 
 ```python
+#########################################################
+# Usage: https://docs.meteor2.io/guides/deployments/pro #
+#########################################################
 import json
 from collections import OrderedDict
 
 class blueprint:
     def __init__(self):
-        ########################################################################################################
-        # Usage: meteor.execute(query=self.queries['1'], args=None, database=None, auxiliary=None, alias=None) #
-        ########################################################################################################
         self.queries = {
             # '1': "<query>"
         }
@@ -123,7 +123,7 @@ def main(self, meteor, environment, region, server, database):
 `meteor.execute(...)` This method is used to execute SQL queries.
 
 ```python
-meteor.execute(query=self.queries['1'], args=None, database=None, auxiliary=None, alias=None)
+meteor.execute(query=self.queries['1'], args=None, database=None, auxiliary=None, alias=None, output=True)
 ```
 
 Arguments:
@@ -133,6 +133,7 @@ Arguments:
 - **database** (Optional): The database name.
 - **auxiliary** (Optional): To use an auxiliary connection.
 - **alias** (Optional): To add a query alias.
+- **output** (Optional): To suppress the execution output from a query.
 
 **ADDITIONAL COMPONENTS**
 

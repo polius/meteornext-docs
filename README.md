@@ -37,9 +37,3 @@ This command generates static content into the `build` directory and can be serv
 ```
 python3 transfer.py
 ```
-
-Deprecated
-
-```console
-rm -rf /var/www/meteor2.io/docs/ && mv /home/ec2-user/git/meteor2-docs/build/ /var/www/meteor2.io/docs/ && echo -e 'User-agent: *\nDisallow: /' > /var/www/meteor2.io/docs/robots.txt
-```

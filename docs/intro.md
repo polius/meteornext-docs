@@ -50,7 +50,20 @@ Meteor Next is a multiplatform web application that fully automatizes database w
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Client - Executing a query</p>
 
-## Why?
+## Security
+
+Meteor Next has been built to be secure and reliable. Here are some aspects to take into account:
+
+- Meteor Next does NOT collect any kind of data. All data stored in your database stays in your database.
+- Meteor Next can work offline without needing internet connection with one exception. The application needs connection to https://license.meteor2.io to be able to check if the license is either activated or expired.
+- Meteor Next has been audited by Ackcent to guarantee that there's no security vulnerabilities.
+- All stored user passwords created by the app are encrypted.
+- Meteor Next supports up to two MFA methods: Virtual 2FA Device and Security Keys.
+- Be able to define a customized password policy to enforce that all users have an strong password and decide the password age.
+- Be able to force that all users have the MFA enabled.
+- Be able to restrict the access to the administration panel only to a specific IP addreess or domain.
+
+## Why using Meteor Next?
 
 As Database Engineers, we spend a lot of time managing all the data infrastructure, and it can be hard to find relevant products that helps us with our daily needs. Most of the time we're coding scripts to automatize some repeating operations.
 
