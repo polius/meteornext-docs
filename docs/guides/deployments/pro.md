@@ -494,7 +494,34 @@ def main(self, meteor, environment, region, server, database):
 Deploying the previous blueprint will actually execute the INSERT query only once. The first one will be rollbacked and the second one will be commited.
 
 :::info
-
 Bear in mind that if we start a transaction into an already started one, all the queries executed in the previous transaction will be rollbacked and then a new transaction will start.
+:::
 
+### Example 9: Suppressing a query output
+
+**DESCRIPTION**
+
+This example shows how to use the optional `output` parameter and why it can come in handy.
+
+**BLUEPRINT**
+
+```python
+def main(self, meteor, environment, region, server, database):
+    result = meteor.execute(query="SELECT 'hello' AS query1", database=database, output=False)
+    # result = [{"query1": "hello"}]
+    meteor.execute(query="SELECT %s AS query2", args=(result[0]['query1']), database=database)
+```
+
+![alt text](../../../assets/deployments/output-results.png "Output - Results")
+
+The output parameter is used to suppress the execution output of a query.
+
+**Why can it come in handy?**
+
+Imagine you need to execute millions of queries and some of them are big SELECTs, just needed to perform some logic and not for data retrieval.
+
+By disabling the output of these SELECT queries, the deployment execution will take less time to finish and the execution log will take less space.
+
+:::tip
+If you need to execute thousands of queries, disable the output for all SELECTs just needed to perform some logic and not for data retrieval.
 :::
