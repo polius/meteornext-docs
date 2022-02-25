@@ -20,8 +20,7 @@ This command starts a local development server and opens up a browser window. Mo
 
 ```console
 npx docusaurus --version
-npm update
-npm run start
+npm start -- --port 3000
 ```
 
 ## Build
