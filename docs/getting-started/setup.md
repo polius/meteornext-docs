@@ -18,9 +18,13 @@ After entering the URL the Login page will be shown. At this point click the `IN
 
 ![alt text](../../assets/introduction/install1.png "Install - Login")
 
+## License
+
 The first step is to enter a valid license (Access Key & Secret Key).
 
 ![alt text](../../assets/introduction/install2.png "Install - License")
+
+## MySQL Credentials
 
 After entering a valid license, it's now time to enter the server credentials to store the app's database.
 
@@ -34,9 +38,47 @@ In case the database exists in the server a dialog will appear with two options:
 
 ![alt text](../../assets/introduction/install3.2.png "Install - Server (Options)")
 
+## Amazon S3
+
+After setting up the MySQL credentials, the next step we can decide if we want to use the Amazon S3 storage, so Meteor Next can use it to store all the generated ephemeral files like Deployments results.
+
+![alt text](../../assets/introduction/install4.png "Install - Amazon S3")
+
+:::tip
+⭐ Meteor Next works better with Amazon S3.
+:::
+
+Althought Meteor can work without Amazon S3, we strongly recommend to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the ephemeral data will be preserved when you perform a [Meteor update](update).
+
+The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
+
+```json title="AWS IAM Policy"
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::yourbucket",
+                "arn:aws:s3:::yourbucket/*"
+            ]
+        }
+    ]
+}
+```
+
+> Replace `yourbucket` to the bucket's name you want to to give access.
+
+
+## Admin Account
+
 The last step is to create the admin account by entering the username and password.
 
-![alt text](../../assets/introduction/install4.png "Install - Account")
+![alt text](../../assets/introduction/install5.png "Install - Account")
 
 After finishing the installation the Login page will be shown. Enter the admin account credentials.
 

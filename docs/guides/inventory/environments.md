@@ -9,3 +9,7 @@ An environment is a resource that contains a group of servers and is identified 
 This section contains all the environments to be used in the `DEPLOYMENTS` section.
 
 ![alt text](../../../assets/inventory/environments.png "Inventory - Environments")
+
+To create a new environment enter a name and select the servers you want it to have.
+
+![alt text](../../../assets/inventory/environments-new.png "Inventory - New Environment")

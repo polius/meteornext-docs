@@ -97,15 +97,14 @@ In this way, in case of updating the meteor2 app all the deployment's results wi
 
 This file storage is the easiest one to manage. You don't need to pass any extra arguments to the `docker run`.
 
-This option is configured inside the application once the [`SETUP`](setup) steps are finished.
+To setup this storage engine, It can done in both ways:
 
-Head to the Admin section [`http://host-ip:1234/admin`](#) → SETTINGS → FILES.
+- In the [`SETUP`](setup) section.
+- In the [`Administration`](../guides/administration/settings#amazon-s3) Panel.
 
-![alt text](../../assets/introduction/settings-files.png "Admin - Settings - Files")
+![alt text](../../assets/administration/admin-settings-amazon.png "Admin - Settings - Amazon")
 
-Before going further, create an AWS IAM user with **Programmatic access**.
-
-After that create a IAM policy that meets the following schema and attach it to the recent created user.
+The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
 ```json title="AWS IAM Policy"
 {
@@ -128,8 +127,6 @@ After that create a IAM policy that meets the following schema and attach it to 
 
 > Replace `yourbucket` to the bucket's name you want to to give access.
 
-Enable the `Store in Amazon S3` switch and enter all the required credentials and bucket's name to be used to store all the deployments.
+Make sure your credentials are valid by clicking the `TEST CREDENTIALS` button.
 
-Finally press `SAVE`.
-
-🚀 Voilà! From now on new deployments will be stored in Amazon S3.
+🚀 Voilà! From now on Meteor Next will store all generated files like Deployments in Amazon S3.

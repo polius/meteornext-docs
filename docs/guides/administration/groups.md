@@ -28,7 +28,6 @@ Here you can manage the permissions of the Inventory.
 **RIGHTS**
 
 - **Access Inventory**: If this option is enabled all user's contained in this group will be able to access the inventory and the inventory icon will be shown at the top bar.
-- **Secure Inventory**: If this option is enabled, all shared resources (servers, regions & auxiliary connections) for non owners will be shown without sensible data (hostname, port, username, password, ssl, ssh).
 
 **OWNERS**
 
@@ -73,6 +72,18 @@ The following screenshot shows a graphic example about having `Execution threads
 
 - **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of deployments that can be executed in the same time. If this values is setup then an automated queue system will start and will only execute X deployments every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of deployments at the same time.
 
+**RETENTION**
+
+This value is used to determine how many days we would like to retain the deployment results. All deployments  done previously with the selected value will be automatically deleted.
+
+:::info
+This setting does not apply if the [Amazon S3](settings#amazon-s3) storage engine it's been enabled.
+:::
+
+:::tip
+To set retention for files stored into S3, create an [Amazon S3 lifecycle rule](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+:::
+
 **SLACK**
 
 - **Enable Notifications**: Enable this option to receive an Slack notification everytime a deployment finishes, showing some information about it. It's useful if you want to track all the deployments that are being done in real-time.
@@ -105,7 +116,9 @@ Here you can set the permissions affecting the Utils section.
 
 **LIMITS**
 
-- **Maximum file upload size (MB)**: This value is optional and it's used to limit the maximum file upload size in MB allowed to be uploaded in the [Restore](../utils/restore) section using the *File* method. 
+- **Maximum Size (MB)**: This value is optional and it's used to limit the maximum file size in MB allowed to perform Imports, Exports and Clones.
+
+- **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of Imports, Exports and Clones that can be executed in the same time. If this values is setup then an automated queue system will start and will only execute X operations every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of data transfer at the same time.
 
 **SLACK**
 
@@ -122,6 +135,12 @@ Here you can set the permissions affecting the Client section.
 **RIGHTS**
 
 - **Access Client**: If this option is enabled all user's contained in this group will be able to access the client section and the client button will be visible at the top bar.
+
+**LIMITS**
+
+- **Apply Limits**: Enable this option to apply limits of all executed queries through Client section.
+    - **Execution Timeout Mode**: This option can be either `All Queries` or `Only SELECTs`.
+    - **Execution Timeout Value**: This value (measured in seconds) is used to limit the maximum execution time that queries can last (all queries or only selects, depending on the mode selected). If a query takes more time to be executed, it will be automatically stopped raising a timeout error.
 
 **TRACKING**
 

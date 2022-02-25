@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Cloud Keys
 
-Contains all the cloud keys (such as AWS) to be used in the `UTILS-RESTORE` section.
+Contains all the cloud keys (such as AWS) to be used in the **[Utils - Imports](../utils/imports)** section.
 
 This resource is needed to perform SQL restores from Amazon S3 to a database server.
 
@@ -43,4 +43,4 @@ After that create a IAM policy that meets the following schema and attach it to 
 
 > Replace `yourbucket` to the bucket's name you want to to give access.
 
-🚀 Your Cloud Key is now ready to be used in the `UTILS-RESTORE` section.
+🚀 Your Cloud Key is now ready to be used in the **[Utils - Imports](../utils/imports)** section.

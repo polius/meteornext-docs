@@ -14,7 +14,7 @@ There are three sources of notifications:
 
 - [Deployments](#deployments)
 - [Monitoring](#monitoring)
-- [Utils-Restore](#utils-restore)
+- [Utils](#utils)
 
 ### Deployments
 
@@ -38,9 +38,9 @@ These are all the different states:
 - **Connections - Warning**: The server entered in a warning state. There are some non optimized queries that are taking more than expected.
 - **Connections - Stable**: The server entered in a stable state. This event is fired after the server has been recovered of a critical/warning state.
 
-### Utils-Restore
+### Utils
 
-A notification is sent every time a restore ends.
+A notification is sent every time an import, export or clone ends.
 
 ## Notification Center
 

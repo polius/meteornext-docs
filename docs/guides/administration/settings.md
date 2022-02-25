@@ -9,6 +9,7 @@ The Settings view is used to manage some application global parameters:
 - [License](#license)
 - [SQL](#sql)
 - [Files](#files)
+- [Amazon S3](#amazon-s3)
 - [Security](#security)
 
 ## License
@@ -35,21 +36,42 @@ These are the fields that can be edited:
 
 This value defaults to `/root/files`. It's the path within the Meteor container that the app will use to store some data that is not stored in the DB (such as Deployments results).
 
-This value does not need to be changed if you decide to store these resources into Amazon S3. If you would like to choose this storage engine you should enable the `Store in Amazon S3` option and fill the necessary fields.
+This value does not need to be changed if you decide to store these resources into Amazon S3. If you would like to choose the AWS S3 storage engine, head to the [Amazon S3](#amazon-s3) section to enable it.
 
 On the other hand if you prefer to use the local disk storage over Amazon S3, then we recommend that you change this value for the [Docker's mounted volume](../../getting-started/install#local). By using the mounted volume path, you won't lose all the deployment results when you perform a Meteor update.
 
-**Retention Days**
+## Amazon S3
 
-This value is used to determine how many days we would like to retain the deployment results.
+The Amazon S3 section shows information about the credentials needed to connect the Meteor Next app to the Amazon S3 storage engine. 
 
-All the deployments that have been done previously that this value will be deleted. Bear in mind that even you choose the Amazon S3 storage engine, Meteor will only delete the deployments in the Docker's container disk (not the files uploaded in S3).
+![alt text](../../../assets/administration/admin-settings-amazon.png "Admin - Settings - Amazon S3")
 
-If you would like to store all the values in Amazon S3, we recommend to set this value as 1. In this way you won't have to worry about the storage left in your machine since all the data will be stored in Amazon S3 and Meteor will only retain locally the deployments results of one day.
+Enable this option to store all generated files like deployment results into Amazon S3. Althought Meteor can work without Amazon S3, we strongly recommended to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the deployment results will be preserved when you perform a Meteor update.
 
-**Store in Amazon S3**
+The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
-Enable this option to store the deployment results into Amazon S3. Althought Meteor can work without Amazon S3, we strongly recommended to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the deployment results will be preserved when you perform a Meteor update.
+```json title="AWS IAM Policy"
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::yourbucket",
+                "arn:aws:s3:::yourbucket/*"
+            ]
+        }
+    ]
+}
+```
+
+> Replace `yourbucket` to the bucket's name you want to to give access.
+
+Make sure your credentials are valid by clicking the `TEST CREDENTIALS` button.
 
 ## Security
 
