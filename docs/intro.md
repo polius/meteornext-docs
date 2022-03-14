@@ -19,6 +19,8 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 ### Deployments
 
+Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
+
 ![alt text](../assets/deployments/deployments.png "Deployments - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - List</p>
@@ -33,13 +35,19 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 ### Monitoring
 
+Perform active monitoring in all the database servers (server metrics, parameters and queries).
+
 ![alt text](../assets/monitoring/monitoring.png "Monitoring")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Monitoring - List</p>
 
 ### Utils
 
+A suite of different apps to perform massive data transfer.
+
 - **IMPORTS**
+
+Perform imports from files (on the local drive, URL or directly from Amazon S3) in any server/database.
 
 ![alt text](../assets/utils/imports/utils-imports.png "Utils (Imports) - List")
 
@@ -51,6 +59,8 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 - **EXPORTS**
 
+Perform exports from any server/database.
+
 ![alt text](../assets/utils/exports/utils-exports.png "Utils (Exports) - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Exports) - List</p>
@@ -61,6 +71,8 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 - **CLONES**
 
+Perform copies of databases/tables from any server/database in another server/database.
+
 ![alt text](../assets/utils/clones/utils-clones.png "Utils (Clones) - List")
 
 <p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Clones) - List</p>
@@ -70,6 +82,8 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 <p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Clones) - Execution</p>
 
 ### Client
+
+A complete MySQL Client.
 
 ![alt text](../assets/client/client.png "Client")
 
