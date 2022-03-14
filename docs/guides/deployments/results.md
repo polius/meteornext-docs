@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Results
@@ -131,14 +131,11 @@ This option is used to export the data in the table. There are three available f
 
 This option is used to share a deployment result to a user or many.
 
-Click the `SHARE` button located in the `INFORMATION` bar. After that a dialog will appear with some options:
-
-- **Private**: This button is used to change the visibility of a deployment result. By default all deployment results are private, meaning that only the user that made the deployment has the rights to access it. If we would like to share the results of a deployment to another user we should click this button. After clicking it this results will be "Public", meaning that any user that has an account in Meteor Next will be able to access it.
-- **Copy Link**: To copy the link to the clipboard.
+Click the `SHARE` button located in the `EXECUTION` bar. After that click the `SHARE DEPLOYMENT` button to make it accessible from everyone having a Meteor account.
 
 ![alt text](../../../assets/deployments/results-share.png "Deployment - Results Share")
 
-After clicking the link, a new web browser tab will open showing the results in full screen.
+If we shared the Results URL to another user, it would see the execution results in full screen.
 
 ![alt text](../../../assets/deployments/results-viewer.png "Deployment - Results Viewer")
 

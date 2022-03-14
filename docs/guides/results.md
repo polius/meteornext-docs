@@ -2,23 +2,23 @@
 sidebar_position: 7
 ---
 
-# Viewer
+# Results
 
-![alt text](../../assets/viewer/viewer-topbar.png "Viewer Top Bar")
+![alt text](../../assets/results/results-topbar.png "Results Top Bar")
 
-The Viewer section is used to import `Meteor` file formats from any Deployment or any Client export.
+The Results section is used to import `Meteor` file formats from any Deployment or any Client export.
 
-![alt text](../../assets/viewer/viewer1.png "Viewer 1")
+![alt text](../../assets/results/results1.png "Results 1")
 
 :::tip
-To better understand how this tool works and all features that contains please head to the [Results](deployments/results) section.
+To better understand how this tool works and all features that contains please read first the **[Deployment Results](deployments/results)** section.
 :::
 
 ## Example
 
 The following screenshot shows an example of a Meteor file exported from the result of a deployment.
 
-![alt text](../../assets/viewer/viewer2.png "Viewer 2")
+![alt text](../../assets/results/results2.png "Results 2")
 
 ## Building a Meteor file
 
@@ -36,8 +36,8 @@ Here's an example of a valid Meteor file.
 }
 ```
 
-The following screenshot shows how this file would be displayed if it was imported into the Viewer.
+The following screenshot shows how this file would be displayed if it was imported into the Results.
 
-![alt text](../../assets/viewer/viewer-example.png "Viewer Example")
+![alt text](../../assets/results/results-example.png "Results Example")
 
 So, yes, you could build your custom Meteor files and use this tool to better display your data and also to perform any kind of search or filter.

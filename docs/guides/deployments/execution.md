@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Execution
@@ -43,19 +43,19 @@ A summary of the total queries that have been executed, how many succeeded, fail
 
 On the top menu bar there are some actions to perform:
 
-**PARAMETERS**
+### Parameters
 
 Shows the deployment details about the current execution (in read-only).
 
 ![alt text](../../../assets/deployments/parameters.png "Deployment - Parameters")
 
-**EXECUTIONS**
+### Executions
 
 Shows all the executions done in the current deployment. In this dialog we can see a previous execution by clicking the right arrow in the last column of the table.
 
 ![alt text](../../../assets/deployments/executions.png "Deployment - Executions")
 
-**RE-DEPLOY**
+### Re-Deploy
 
 It's used to perform another execution from the current deployment. It's useful if we want to execute the same deployment but changing some fields (environment, queries, ...).
 
@@ -65,4 +65,18 @@ Imagine that we deployed some queries for all servers that are part of the `Deve
 
 :::tip
 It's recommended to always perform a Re-Deploy if the deployment we want to perform is related to an existing one.
+:::
+
+### Share
+
+This option is used to share the current deployment make it visible for other users that have a Meteor account.
+
+There are two URLs available. The first one it's to access the execution details and the second one is to see the execution results.
+
+![alt text](../../../assets/deployments/share.png "Deployment - Share")
+
+:::info
+If a deployment is not shared, the owner will be the only one allowed to access it.
+
+Otherwise any user with a Meteor account will have access to see the deployment execution (in ReadOnly) and also will be able to see the execution results.
 :::

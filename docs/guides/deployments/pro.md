@@ -88,7 +88,7 @@ Note that both `TEST` and `DEPLOY` options also performs the VALIDATE method und
 
 #### Scheduled
 
-Turn on this option to schedule the execution on a specific date and time.
+Turn on this option to [schedule](scheduled) the execution.
 
 #### Start execution
 
