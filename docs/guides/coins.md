@@ -1,7 +1,3 @@
----
-sidebar_position: 10
----
-
 # Coins
 
 The Coins view shows:
@@ -12,6 +8,6 @@ The Coins view shows:
 
 Coins are consumed performing Deployments, Imports, Exports and Clones. And the amount of coins that are consumed depends on the user's group settings.
 
-To change the amount of coins that are consumed, go to the [Groups](administration/groups) section and edit a desired group. Look for the `Coins per execution` field found both in the [Deployments](administration/groups#deployments) tab and the [Utils](administration/groups#utils) tab.
+To change the amount of coins that are consumed, go to the [Groups](./administration#groups) section and edit a desired group. Look for the `Coins per execution` field found both in the [Deployments](./administration#deployments) tab and the [Utils](./administration#utils) tab.
 
 ![alt text](../../assets/coins/coins.png "Coins")

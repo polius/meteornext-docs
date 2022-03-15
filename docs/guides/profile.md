@@ -1,7 +1,3 @@
----
-sidebar_position: 8
----
-
 # Profile
 
 The Profile section is used to manage some security parameters to the user's account.

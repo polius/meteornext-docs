@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-slug: /
----
-
 # Introduction
 
 Meteor Next is a multiplatform web application that fully automatizes MySQL database workload operations in a Production ready environment.
@@ -11,7 +6,7 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 - **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
 - **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
-- **Utils**: A suite of different apps to perform massive data transfer.
+- **Utils**: A suite of different apps to perform massive data transfer operations.
     - **Imports**: Perform imports from files (on the local drive, URL or directly from Amazon S3) in any server/database.
     - **Exports**: Perform exports from any server/database.
     - **Clones**: Perform copies of databases/tables from any server/database in another server/database.
@@ -23,15 +18,15 @@ Execute thousands or millions of SQL queries to multiple servers/databases in a 
 
 ![alt text](../assets/deployments/deployments.png "Deployments - List")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - List</p>
+<p style="text-align:center; margin-top:-10px">Deployments - List</p>
 
 ![alt text](../assets/deployments/execution.png "Deployments - Execution")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Execution</p>
+<p style="text-align:center; margin-top:-10px">Deployments - Execution</p>
 
 ![alt text](../assets/deployments/results.png "Deployments - Results")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Deployments - Results</p>
+<p style="text-align:center; margin-top:-10px">Deployments - Results</p>
 
 ### Monitoring
 
@@ -39,7 +34,7 @@ Perform active monitoring in all the database servers (server metrics, parameter
 
 ![alt text](../assets/monitoring/monitoring.png "Monitoring")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Monitoring - List</p>
+<p style="text-align:center; margin-top:-10px">Monitoring - List</p>
 
 ### Utils
 
@@ -51,11 +46,11 @@ Perform imports from files (on the local drive, URL or directly from Amazon S3) 
 
 ![alt text](../assets/utils/imports/utils-imports.png "Utils (Imports) - List")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Imports) - List</p>
+<p style="text-align:center; margin-top:-10px">Utils (Imports) - List</p>
 
 ![alt text](../assets/utils/imports/file/utils-imports-file-info.png "Utils (Imports/File) - Information")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Imports) - Execution</p>
+<p style="text-align:center; margin-top:-10px">Utils (Imports) - Execution</p>
 
 - **EXPORTS**
 
@@ -63,11 +58,11 @@ Perform exports from any server/database.
 
 ![alt text](../assets/utils/exports/utils-exports.png "Utils (Exports) - List")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Exports) - List</p>
+<p style="text-align:center; margin-top:-10px">Utils (Exports) - List</p>
 
 ![alt text](../assets/utils/exports/utils-exports-full-information.png "Utils (Exports) - Information")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Exports) - Execution</p>
+<p style="text-align:center; margin-top:-10px">Utils (Exports) - Execution</p>
 
 - **CLONES**
 
@@ -75,11 +70,11 @@ Perform copies of databases/tables from any server/database in another server/da
 
 ![alt text](../assets/utils/clones/utils-clones.png "Utils (Clones) - List")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Clones) - List</p>
+<p style="text-align:center; margin-top:-10px">Utils (Clones) - List</p>
 
 ![alt text](../assets/utils/clones/utils-clones-full-information.png "Utils (Clones) - Information")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Utils (Clones) - Execution</p>
+<p style="text-align:center; margin-top:-10px">Utils (Clones) - Execution</p>
 
 ### Client
 
@@ -87,7 +82,7 @@ A complete MySQL Client.
 
 ![alt text](../assets/client/client.png "Client")
 
-<p style={{textAlign:"center", marginTop:"-10px"}}>Client - Executing a query</p>
+<p style="text-align:center; margin-top:-10px">Client - Executing a query</p>
 
 ## Security
 

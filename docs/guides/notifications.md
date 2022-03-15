@@ -1,7 +1,3 @@
----
-sidebar_position: 9
----
-
 # Notifications
 
 The Notification section is used to keep track of all the events that happened in the past in your user's account.
@@ -25,7 +21,7 @@ A notification is sent every time a scheduled deploymend ends.
 A notification is sent everytime a selected monitored server changes it's state.
 
 :::tip
-To add servers to be monitored head to the [Monitoring](monitoring/introduction#servers) section. 
+To add servers to be monitored head to the [Monitoring](./monitoring) section. 
 :::
 
 These are all the different states:
