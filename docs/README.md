@@ -111,4 +111,4 @@ Most of these applications I found were useful, but in some cases I had to conti
 
 At this point I thought, "why not building a multiplatform web app that could automatize all those concurrent database operations that every company need to handle?"
 
-After two years and a half designing and coding this application in my free time, today the company where I work has all the database infrastructure automated and secured. Now I don't have to think about all those daily tasks. Everything works as it should. Developers also have access to this app (with limited access) and most of the tasks now can be done without the need of being reviewed by the Data Engineer.
+After three years designing and coding this application in my free time, today the company where I work has all the database infrastructure automated and secured. Now I don't have to think about all those daily tasks. Everything works as it should. Developers also have access to this app (with limited access) and most of the tasks now can be done without the need of being reviewed by the Data Engineer.
