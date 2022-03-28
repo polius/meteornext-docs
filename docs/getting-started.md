@@ -41,7 +41,7 @@ These are all the environment variables that meteor2 supports:
 | ---------------- | :---------- |
 | `LIC_ACCESS_KEY` | The license access key |
 | `LIC_SECRET_KEY` | The license secret key |
-| `SQL_ENGINE`     | The server's engine [MySQL \| Aurora MySQL] |
+| `SQL_ENGINE`     | The server's engine [MySQL \| Amazon Aurora (MySQL)] |
 | `SQL_HOST`       | The server's hostname  |
 | `SQL_USER`       | The server's username |
 | `SQL_PASS`       | The server's password |
