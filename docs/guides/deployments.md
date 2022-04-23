@@ -760,7 +760,7 @@ def main(self, meteor, environment, region, server, database):
 
 **DESCRIPTION**
 
-This example shows how to execute an INSERT passing multiple values at once from a list of objects.
+This example shows how to execute an INSERT passing multiple values at once from a list of dictionaries.
 
 **BLUEPRINT**
 
