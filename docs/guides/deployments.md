@@ -732,6 +732,56 @@ By disabling the output of these SELECT queries, the deployment execution will t
 If you need to execute thousands of queries, disable the output for all SELECTs just needed to perform some logic and not for data retrieval.
 :::
 
+### Example 10: Generate multiple parameters from a list of values
+
+**DESCRIPTION**
+
+This example shows how to execute an INSERT passing multiple values at once from a list.
+
+**BLUEPRINT**
+
+```python
+from itertools import repeat
+
+def __init__(self):
+    self.queries = {
+        '1': "INSERT INTO tbl VALUES {}",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    values = [1,2,3]
+    params = ','.join(repeat('(%s)', len(values)))
+    # params = '(%s),(%s),(%s)'
+    meteor.execute(query=self.queries['1'].format(params), args=(values), database=database)
+    # INSERT INTO tbl VALUES (1),(2),(3)
+```
+
+### Example 11: Generate multiple parameters from a list of dictionaries
+
+**DESCRIPTION**
+
+This example shows how to execute an INSERT passing multiple values at once from a list of objects.
+
+**BLUEPRINT**
+
+```python
+from itertools import repeat
+
+def __init__(self):
+    self.queries = {
+        '1': "INSERT INTO tbl VALUES {}",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    values = [{'col1': 1, 'col2': 2, 'col3': 3}, {'col1': 4, 'col2': 5, 'col3': 6}]
+    inner_params = '(' + ','.join(repeat('%s', len(values[0].keys()))) + ')'
+    # inner_params = '(%s,%s,%s)'
+    params = ','.join(repeat(inner_params, len(values)))
+    # params = '(%s,%s,%s),(%s,%s,%s)'
+    meteor.execute(query=self.queries['1'].format(params), args=(values), database=database)
+    # INSERT INTO tbl VALUES (1,2,3),(4,5,6)
+```
+
 ## Scheduled
 
 Scheduled deployments are used to program a deployment to be executed automatically in a given time.
