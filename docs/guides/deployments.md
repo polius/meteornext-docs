@@ -471,6 +471,21 @@ def main(self, meteor, environment, region, server, database):
 ```
 
 Note that we doubled the character `%` in `LIKE 'a%%'`.
+
+In case you are not passing any arguments to the query, then it's not needed to double the character `%`. Here's an example:
+
+```python
+def __init__(self):
+    self.queries = {
+        '1': "SELECT * FROM employees WHERE name LIKE 'a%'",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    if database == 'emp':
+        meteor.execute(query=self.queries['1'], database=database)
+```
+
+In this case, since we're not passing any arguments to the query, it's not necessary to double the `%` character. This query will retrieve all employees that their name starts with the letter a.
 :::
 
 ### Example 3: Handling query results
