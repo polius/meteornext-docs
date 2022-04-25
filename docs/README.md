@@ -101,7 +101,7 @@ Meteor Next has been built to be secure and reliable. Here are some aspects to t
 
 As Database Engineers, we spend a lot of time managing all the data infrastructure, and it can be hard to find relevant products that helps us with our daily needs. Most of the time we're coding scripts to automatize some repeating operations.
 
-This is what happened me when I started working as a Database Engineer in my last job. I had to start performing some concurrent tasks such as massive and dangerous SQL deployments on each Release, monitor some metrics in hundreds of database servers and to manage all the database user's accounts.
+This is what happened me when I started working as a Database Engineer in my last job position. I had to start performing some concurrent tasks such as massive and dangerous SQL deployments on each Release, monitor some metrics in hundreds of database servers and also manage all the database user's accounts.
 
 At first, when I started working on this position, I only had a MySQL client and some legacy scripts to perform all those sql deployments.
 
@@ -111,4 +111,8 @@ Most of these applications I found were useful, but in some cases I had to conti
 
 At this point I thought, "why not building a multiplatform web app that could automatize all those concurrent database operations that every company need to handle?"
 
-After three years designing and coding this application in my free time, today the company where I work has all the database infrastructure automated and secured. Now I don't have to think about all those daily tasks. Everything works as it should. Developers also have access to this app (with limited access) and most of the tasks now can be done without the need of being reviewed by the Data Engineer.
+After four years designing and coding this application in my free time, today the company where I work has all the database infrastructure automated and secured. Now I don't have to think about all those daily tasks. Everything works as it should. Developers also have their accounts with their set of privileges and most of the tasks now can be done without the need of being reviewed by the Data Engineer.
+
+Developers are happy and the boring stuff Is now fully automated. I can say that all the time I spent developing this application was worth it.
+
+Now it's time to share this project with everyone and I hope you can find it useful.
