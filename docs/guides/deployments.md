@@ -78,9 +78,9 @@ Here's a image representing this example:
 
 <p style="text-align:center; margin-top:-10px">Without Cross Region</p>
 
-All the SQL queries will be executed from the Docker container meteor2 (located in Europe) to all seven servers.
+All the SQL queries will be executed from the Docker container meteornext (located in Europe) to all seven servers.
 
-By using this scenario, the execution will be affected by high latency, since all servers are located in different geographical regions than the meteor2 container.
+By using this scenario, the execution will be affected by high latency, since all servers are located in different geographical regions than the meteornext container.
 
 ### Using Cross Region
 
@@ -106,7 +106,7 @@ Here's an example of a Cross-Region deployment:
 
 <p style="text-align:center; margin-top:-10px">Using Cross Region</p>
 
-By using Cross-Regions (SSH Tunnel enabled), Meteor Next goes an step further. Aside from providing a tunnel to connect to a server using an intermediary machine, Meteor also deploys a binary to each SSH Tunnel machine (in ~/.meteor2).
+By using Cross-Regions (SSH Tunnel enabled), Meteor Next goes an step further. Aside from providing a tunnel to connect to a server using an intermediary machine, Meteor also deploys a binary to each SSH Tunnel machine (in ~/.meteornext).
 
 This binary is in charge of executing the deployment for the servers that are located in their region. When the execution finishes, all the execution details are sent to the Docker container where Meteor Next resides.
 
@@ -240,7 +240,7 @@ A Python template to write the deployment.
 
 ```python
 #########################################################
-# Usage: https://docs.meteor2.io/guides/deployments#pro #
+# Usage: https://docs.meteornext.io/guides/deployments#pro #
 #########################################################
 import json
 from collections import OrderedDict
