@@ -4,59 +4,22 @@
 
 Before we start, you will need to install Docker. You can find guides for your platform on the [official documentation](https://docs.docker.com/get-docker/).
 
-Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container. You can do both in one command using `docker run`:
+Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container.
 
 ```bash
-docker run -itd --name meteornext -p 1234:80 meteornext/meteornext
+docker run --name meteornext -dp 1234:80 meteornext/meteornext
 ```
 
-### Docker arguments
-
-| Argument | Description |
-| -------- | :---------- |
-| `-it`    | Interactive process (allocate a tty for the container process) |
-| `-d`     | Start the container in detached mode |
-| `--name` | Assign a name to the container |
-| `-p`     | Publish a container's port or a range of ports to the host |
+The port number `1234` is not mandatory and can be changed to any other desired value.
 
 ---
 
-### Docker Environment variables
+### Data persistence 
 
-These are all the environment variables that meteornext supports:
+This application supports two different file storage engines:
 
-| Argument         | Description |
-| ---------------- | :---------- |
-| `LIC_ACCESS_KEY` | The license access key |
-| `LIC_SECRET_KEY` | The license secret key |
-| `SQL_ENGINE`     | The server's engine [MySQL \| Amazon Aurora (MySQL)] |
-| `SQL_HOST`       | The server's hostname  |
-| `SQL_USER`       | The server's username |
-| `SQL_PASS`       | The server's password |
-| `SQL_PORT`       | The server's port |
-| `SQL_DB`         | The server's database where meteornext will be stored |
-| `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured a SSL certificate pointing to the meteornext container before enabling this flag) |
-
-Example:
-
-:::: code-group
-::: code-group-item Enabling SECURE flag
-```bash
-docker run -itd --name meteornext -p 1234:80 -e SECURE=1 meteornext/meteornext
-```
-:::
-::::
-
-### Data persistence
-
-Meteor Next stores all the deployment's execution results inside the Docker to later be consumed.
-
-So, what would happen if we updated the app? Since the Docker storage is by default ephemeral, all the data stored inside the meteornext container would be wiped. If we would like to make sure that all the past deployments results persists we must setup data persistence.
-
-This application supports two file storage engines:
-
-- **[Local](#local)**: The files are stored inside the docker (into the `/root/files` folder).
-- **[Amazon S3 (preferred)](#amazon-s3)**: The files are stored in Amazon S3.
+- **[Local](#local)**: Files are stored inside the docker (into the `/root/files` folder).
+- **[Amazon S3 (preferred)](#amazon-s3)**: Files are stored in Amazon S3.
 
 :::tip
 ⭐ We strongly recommend using the Amazon S3 storage engine over Local
@@ -64,21 +27,21 @@ This application supports two file storage engines:
 
 **LOCAL**
 
-To ensure the data persistence, mount a volume to the meteornext container using the `-v` flag in a Docker `run` command.
+This storage engine requires passing an additional parameter (-v) when creating the Meteor Next container.
 
 :::: code-group
-::: code-group-item Store all the deployments results in the present/current working directory
+::: code-group-item Store all the generated files in the current working directory
 ```bash
-docker run -itd --name meteornext -p 1234:80 -v "$(pwd):/root/files/" meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v "$(pwd):/root/files/" meteornext/meteornext
 ```
 :::
 ::::
 
-In this way, in case of updating the meteornext app all the deployment's results will be preserved.
+In this way, when you update the Meteor Next app all generated files (deployments results) will be preserved.
 
 **AMAZON S3**
 
-This file storage is the easiest one to manage. You don't need to pass any extra arguments to the `docker run`. Read the next [Setup](#setup) section and you will be able to enable it.
+This file storage is the easiest one to manage and also it doesn't require passing the `-v` parameter to the `docker run`. To choose this option read the next [Setup](#setup) section.
 
 ## Setup
 
@@ -188,7 +151,7 @@ docker rm -f meteornext
 :::: code-group
 ::: code-group-item Create and start the meteornext container with the latest version
 ```bash
-docker run -itd --name meteornext -p 1234:80 meteornext/meteornext
+docker run --name meteornext -dp 1234:80 meteornext/meteornext
 ```
 :::
 ::::
@@ -204,7 +167,7 @@ http://host-ip:1234
 If you want to skip filling again all the `INSTALL` steps, start the meteornext container using:
 
 ```bash
-docker run -itd --name meteornext -p 1234:80 \
+docker run --name meteornext -dp 1234:80 \
 -e LIC_ACCESS_KEY="<license_access_key>" \
 -e LIC_SECRET_KEY="<license_secret_key>" \
 -e SQL_ENGINE="<sql_engine>" \
@@ -219,7 +182,7 @@ meteornext/meteornext
 Example:
 
 ```bash
-docker run -itd --name meteornext -p 1234:80 \
+docker run --name meteornext -dp 1234:80 \
 -e LIC_ACCESS_KEY="0000-0000-0000-0000" \
 -e LIC_SECRET_KEY="12345abcd" \
 -e SQL_ENGINE="MySQL" \
@@ -253,6 +216,32 @@ docker rm -f meteornext
 ::: code-group-item Remove the meteornext image
 ```bash
 docker rmi meteornext
+```
+:::
+::::
+
+### Docker Environment variables
+
+These are all the environment variables that meteornext supports:
+
+| Argument         | Description |
+| ---------------- | :---------- |
+| `LIC_ACCESS_KEY` | The license access key |
+| `LIC_SECRET_KEY` | The license secret key |
+| `SQL_ENGINE`     | The server's engine [MySQL \| Amazon Aurora (MySQL)] |
+| `SQL_HOST`       | The server's hostname  |
+| `SQL_USER`       | The server's username |
+| `SQL_PASS`       | The server's password |
+| `SQL_PORT`       | The server's port |
+| `SQL_DB`         | The server's database where meteornext will be stored |
+| `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured a SSL certificate pointing to the meteornext container before enabling this flag) |
+
+Example:
+
+:::: code-group
+::: code-group-item Enabling SECURE flag
+```bash
+docker run --name meteornext -dp 1234:80 -e SECURE=1 meteornext/meteornext
 ```
 :::
 ::::

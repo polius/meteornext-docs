@@ -4,15 +4,12 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 ## Features
 
-- **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
-- **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
-- **Utils**: A suite of different apps to perform massive data transfer operations.
-    - **Imports**: Perform imports from files (on the local drive, URL or directly from Amazon S3) in any server/database.
-    - **Exports**: Perform exports from any server/database.
-    - **Clones**: Perform copies of databases/tables from any server/database in another server/database.
-- **Client**: A complete MySQL Client.
+- 🚀 **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
+- 🖥️ **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
+- 💾 **Utils**: A suite of different apps to perform massive data transfer operations.
+- ⚡ **Client**: A complete MySQL Client.
 
-### Deployments
+### 🚀 Deployments
 
 Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
 
@@ -28,7 +25,7 @@ Execute thousands or millions of SQL queries to multiple servers/databases in a 
 
 <p style="text-align:center; margin-top:-10px">Deployments - Results</p>
 
-### Monitoring
+### 🖥️ Monitoring
 
 Perform active monitoring in all the database servers (server metrics, parameters and queries).
 
@@ -36,7 +33,7 @@ Perform active monitoring in all the database servers (server metrics, parameter
 
 <p style="text-align:center; margin-top:-10px">Monitoring - List</p>
 
-### Utils
+### 💾 Utils
 
 A suite of different apps to perform massive data transfer.
 
@@ -76,7 +73,7 @@ Perform copies of databases/tables from any server/database in another server/da
 
 <p style="text-align:center; margin-top:-10px">Utils (Clones) - Execution</p>
 
-### Client
+### ⚡ Client
 
 A complete MySQL Client.
 
