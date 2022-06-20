@@ -220,7 +220,7 @@ docker rmi meteornext
 :::
 ::::
 
-### Docker Environment variables
+## Docker Environment variables
 
 These are all the environment variables that meteornext supports:
 
