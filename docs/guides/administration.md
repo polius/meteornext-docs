@@ -17,7 +17,6 @@ The Settings view is used to manage some application global parameters:
 
 - [License](#license)
 - [SQL](#sql)
-- [Files](#files)
 - [Amazon S3](#amazon-s3)
 - [Security](#security)
 
@@ -32,22 +31,6 @@ The License section shows information (in read-only) related of the license. We 
 The SQL section shows the credentials (in read-only) where Meteor Next is stored.
 
 ![alt text](../../assets/administration/admin-settings-sql.png "Admin - Settings - SQL")
-
-### Files
-
-The Files section shows information about the path where the application files are stored.
-
-![alt text](../../assets/administration/admin-settings-files.png "Admin - Settings - Files")
-
-These are the fields that can be edited:
-
-**ABSOLUTE PATH**
-
-This value defaults to `/root/files`. It's the path within the Meteor container that the app will use to store some data that is not stored in the DB (such as Deployments results).
-
-This value does not need to be changed if you decide to store these resources into Amazon S3. If you would like to choose the AWS S3 storage engine, head to the [Amazon S3](#amazon-s3) section to enable it.
-
-On the other hand if you prefer to use the local disk storage over Amazon S3, then we recommend that you change this value for the [Docker's mounted volume](../../getting-started/install#local). By using the mounted volume path, you won't lose all the deployment results when you perform a Meteor update.
 
 ### Amazon S3
 
@@ -230,16 +213,17 @@ Here you can set the permissions affecting the Deployments section.
 
 Here we can set the limits of all the deployment executions.
 
-- **Coins per execution**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment then it will have to wait for the next day or that some admin gives him/her more coins.
-- **Execution threads**: How many parallel connections will be spawned at database level. A value of 1 means that the execution will go database per database, one by one (sequentially). A value of 2 means that the execution will perform the deployment in two databases at the same time. And so on. So, the larger the value, the faster the execution will go and the less time it will take to finish. But keep in mind that also the larger the value, the more resources will consume.
+- **Coins per Deployment**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment then it will have to wait for the next day or that some admin gives him/her more coins.
 
-The following screenshot shows a graphic example about having `Execution threads = 2`. We can see that for each server, the execution will apply the deployment in two databases at the same time.
+- **Concurrent Deployments**: This value is used to limit the amount of deployments that can be executed in the same time. It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of deployments at the same time.
+
+- **Execution Threads**: How many parallel connections will be spawned at database level. A value of 1 means that the execution will go database per database, one by one (sequentially). A value of 2 means that the execution will perform the deployment in two databases at the same time. And so on. So, the larger the value, the faster the execution will go and the less time it will take to finish. But keep in mind that also the larger the value, the more resources will consume.
+
+The following screenshot shows a graphic example about having `Execution Threads = 2`. We can see that for each server, the execution will apply the deployment in two databases at the same time.
 
 ![alt text](../../assets/deployments/architecture.png "Deployments - Architecture")
 
-- **Execution timeout**: This value (numeric) is optional and it's used to limit the execution time per query (in seconds). Queries that take more time to execute will be automatically terminated. It's useful if you want to limit the SQL queries that your users can execute avoiding unwanted slow/dangerous queries.
-
-- **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of deployments that can be executed in the same time. If this values is setup then an automated queue system will start and will only execute X deployments every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of deployments at the same time.
+- **Execution Timeout**: This value (numeric) is optional and it's used to limit the execution time per query (in seconds). Queries that take more time to execute will be automatically terminated. It's useful if you want to limit the SQL queries that your users can execute avoiding unwanted slow/dangerous queries.
 
 **RETENTION**
 
@@ -285,7 +269,7 @@ Here you can set the permissions affecting the Utils section.
 
 **LIMITS**
 
-- **Maximum Size (MB)**: This value is optional and it's used to limit the maximum file size in MB allowed to perform Imports, Exports and Clones.
+- **Maximum Size (MB)**: This value is optional and it's used to limit the maximum file size in MB allowed to perform File Imports.
 
 - **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of Imports, Exports and Clones that can be executed in the same time. If this values is setup then an automated queue system will start and will only execute X operations every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of data transfer at the same time.
 
