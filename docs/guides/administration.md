@@ -136,6 +136,8 @@ The next time you login into the app, you will be able to access to the Administ
 
 The Advanced section it's used to tune up some parameters to ensure that Meteor Next performs at maximum efficiency.
 
+![alt text](../../assets/administration/admin-settings-advanced.png "Admin - Settings - Advanced")
+
 When the memory cleanup happens a new worker process is started. This process then starts serving all next api requests transparently. The old worker waits up to 30 seconds to finish serving the remaining active requests (for example long running queries executed by the Client). After 30 seconds this worker is gracefully shutdown.
 
 All active Deployments, Imports, Exports and Clones at the moment of the cleanup remain unaffected, since are processes outside the api ecosystem.

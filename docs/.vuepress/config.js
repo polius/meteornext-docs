@@ -1,4 +1,7 @@
 // .vuepress/config.js
+const { defaultTheme } = require('@vuepress/theme-default')
+const { searchPlugin } = require('@vuepress/plugin-search')
+
 module.exports = {
   title: 'Meteor Next - Docs',
   description: 'Meteor Next - Official Documentation',
@@ -7,18 +10,17 @@ module.exports = {
   ],
   plugins: [
     [
-      '@vuepress/plugin-search',
-      {
+      searchPlugin({
         maxSuggestions: 10,
         locales: {
           '/': {
             placeholder: 'Search',
           },
         },
-      },
+      }),
     ],
   ],
-  themeConfig: {
+  theme: defaultTheme({
     logo: 'logo.png',
     sidebar: {
       '/': [
@@ -42,6 +44,6 @@ module.exports = {
         }
       ]
     }
-  }
+  })
 }
   
