@@ -797,6 +797,34 @@ def main(self, meteor, environment, region, server, database):
     # INSERT INTO tbl VALUES (1,2,3),(4,5,6)
 ```
 
+### Example 12: Debugging code errors
+
+**DESCRIPTION**
+
+Pro Deployments fail when some error is introduced into the Python code blueprint. For example using a variable that has not yet being declared, or trying to access a list element that does not exist.
+
+This example shows how to properly debug these unwanted code errors.
+
+**BLUEPRINT**
+
+```python
+def main(self, meteor, environment, region, server, database):
+    try:
+        a = 1 / 0
+    except Exception as e:
+        meteor.execute(query="SELECT %s AS 'class', %s AS 'description', %s AS 'line'", args=(type(e).__name__, e, e.__traceback__.tb_lineno), database=database, alias="ERROR")
+```
+
+If you find that your Pro Deployment fails, try to put all your code into the _try_ scope.
+
+After that execute the deployment and then go to the `RESULTS` tab, apply a `Data Transformation`, choose the `[ALIAS] ERROR` query and you will get what kind of error has occurred and the line where the error is located.
+
+In the above example this is what we would receive:
+
+- **Class**: ZeroDivisionError
+- **Description**: division by zero
+- **Line**: 24
+
 ## Scheduled
 
 Scheduled deployments are used to program a deployment to be executed automatically in a given time.
