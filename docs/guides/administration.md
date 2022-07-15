@@ -19,6 +19,7 @@ The Settings view is used to manage some application global parameters:
 - [SQL](#sql)
 - [Amazon S3](#amazon-s3)
 - [Security](#security)
+- [Advanced](#advanced)
 
 ### License
 
@@ -130,6 +131,18 @@ Look for the `restrict_url` key and leave its value empty.
 
 The next time you login into the app, you will be able to access to the Administration panel.
 :::
+
+### Advanced
+
+The Advanced section it's used to tune up some parameters to ensure that Meteor Next performs at maximum efficiency.
+
+When the memory cleanup happens a new worker process is started. This process then starts serving all next api requests transparently. The old worker waits up to 30 seconds to finish serving the remaining active requests (for example long running queries executed by the Client). After 30 seconds this worker is gracefully shutdown.
+
+All active Deployments, Imports, Exports and Clones at the moment of the cleanup remain unaffected, since are processes outside the api ecosystem.
+
+The only requests that can fail at the moment of the cleanup are long running queries executed by the Client that takes more than 30 seconds to finish. That's why it's recommended to set the cleanup execution time in non-working hours.
+
+This option is enabled by default and it's recommended not to disable it.
 
 ## Users
 
@@ -294,12 +307,12 @@ Here you can set the permissions affecting the Client section.
 - **Apply Limits**: Enable this option to apply limits of all executed queries through Client section.
     - **Execution Timeout Mode**: This option can be either `All Queries` or `Only SELECTs`.
     - **Execution Timeout Value**: This value (measured in seconds) is used to limit the maximum execution time that queries can last (all queries or only selects, depending on the mode selected). If a query takes more time to be executed, it will be automatically stopped raising a timeout error.
+    - **Execution Rows**: This value (measured in number of rows) is used to limit the maximum returned rows returned by SELECTs. It can be useful to prevent users to SELECT millions of rows of Production databases.
 
 **TRACKING**
 
 - **Track Queries**: Enable this option to store all the queries that are being executed in the Client section. It's useful if you want to know which kind of queries your users are executing. Also it can be useful in case of someone executes a query and breaks something. In this way you will know exactly what queries the user executed and this information may come in handy in order to solve the issue.
     - **Tracking Mode**: This option can be either `All Queries` to track every query the users execute or `All Queries (exclude SELECTs)` to exclude SELECTs and EXPLAINs to be tracked.
-    - **Tracking Filter**: This option is used to filter which queries are meant to be tracked. The available options are `All Queries`, `Succeeded` or `Failed`.
     - **Tracking Retention Days**: This value is used to determine how many days we would like to retain the queries tracked.
 
 ## Inventory
