@@ -345,6 +345,17 @@ Arguments:
 - **alias** (Optional): To add a query alias.
 - **output** (Optional): To suppress the execution output from a query.
 
+Returns:
+
+If the query executed is an INSERT, UPDATE or DELETE it returns the number of rows affected (an integer value).
+
+The rest of queries returns a list of dictionaries.
+
+```python
+# Example: Executing a SELECT
+[{"row1_col1": "val11", "row1_col2": "val12"}, {"row2_col1": "val21", "row2_col2": "val22"}]
+```
+
 **ADDITIONAL COMPONENTS**
 
 Here are some additional components that may be useful in some deployments.
@@ -824,6 +835,40 @@ In the above example this is what we would receive:
 - **Class**: ZeroDivisionError
 - **Description**: division by zero
 - **Line**: 24
+
+### Example 13: Cleaning tables in chunks
+
+**DESCRIPTION**
+
+Sometimes when executing massive DELETEs it can lead to unwanted table locks. Also this operation can be tidious and most of the times it can fail due to unexpected circumstances: timeouts, deadlocks or cpu spikes.
+
+The recommended way of deleting millions rows of a table is by doing it in chunks.
+
+**USE CASE**
+
+The following example performs a DELETE of the table `logs` in the `emp` database. This deletion is done in chunks of 10000.
+It will be executing the DELETE query multiple times until there's no more rows matching the WHERE filters.
+
+**BLUEPRINT**
+
+```python
+def __init__(self):
+    self.queries = {
+        '1': "DELETE FROM logs WHERE status = 1 AND has_expired = 1 LIMIT {}",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    if database == 'emp':
+        chunks = 10000
+        while True:
+            rows_affected = meteor.execute(query=self.queries['1'].format(chunks), database=database)
+            if rows_affected == 0:
+                break
+```
+
+:::tip
+When executing INSERTs, UPDATEs or DELETEs the `meteor.execute(...)` method returns the rows affected. This value can be useful to perform this kind of operations.
+:::
 
 ## Scheduled
 
