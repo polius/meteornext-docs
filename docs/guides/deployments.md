@@ -861,13 +861,23 @@ def main(self, meteor, environment, region, server, database):
     if database == 'emp':
         chunks = 10000
         while True:
+            # Start a transaction
+            meteor.begin()
+            # Execute the DELETE
             rows_affected = meteor.execute(query=self.queries['1'].format(chunks), database=database)
-            if rows_affected == 0:
+            # Commit the transaction
+            meteor.commit()
+            # If the query has ended with an error (rows_affected=None) or there are no more rows to delete (rows_affected=0), then exit.
+            if not rows_affected:
                 break
 ```
 
 :::tip
 When executing INSERTs, UPDATEs or DELETEs the `meteor.execute(...)` method returns the rows affected. This value can be useful to perform this kind of operations.
+
+The transaction is used to reflect the changes of each bulk query immediately as they are being executed. If the DELETE query had been executed without using transactions, other connections would not have seen the DELETE operation until the deployment had finished.
+
+Being said that, it's always recommended to use transactions when executing queries that are splitted in chunks (INSERTs, UPDATEs or DELETEs).
 :::
 
 ## Scheduled
