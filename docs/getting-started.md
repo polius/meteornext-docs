@@ -235,6 +235,7 @@ These are all the environment variables that meteornext supports:
 | `SQL_PORT`       | The server's port |
 | `SQL_DB`         | The server's database where meteornext will be stored |
 | `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured a SSL certificate pointing to the meteornext container before enabling this flag) |
+| `MAX_REQUESTS`   | The maximum number of concurrent requests. If this parameter is not set the default value is 1000. Accepted values are: 1-1000000 |
 
 Example:
 
