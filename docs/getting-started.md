@@ -120,7 +120,16 @@ The credentials needed to work are an AWS IAM user with Programmatic access with
 :::
 ::::
 
-> Replace `yourbucket` to the bucket's name you want to to give access.
+> Replace `yourbucket` to the bucket's name you want to give access.
+
+After creating the AWS IAM Policy, grab the AWS user's credentials that has the policy attached (Access Key and Secret Access Key).
+
+Here's an example:
+
+- **Access Key**: `AKIAIOSFODNN7EXAMPLE` (The AWS user Access Key).
+- **Secret Access Key**: `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` (The AWS user Secret Access Key).
+- **Region**: `eu-west-1` (The AWS region code where the bucket resides).
+- **Bucket**: `meteornext-files` (The AWS bucket name to store all Meteor files).
 
 ### Admin Account
 
