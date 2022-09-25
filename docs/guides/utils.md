@@ -106,31 +106,6 @@ The underlying process of the Import is similar of how the Deployments work. Bas
 
 To also reduce drastically the execution time needed to finish an import, all the process is performed in a single pipe. So the file retrieval, the decompression and the import is performed in a single computing unit. Bear in mind also that by using URL or Cloud Key as a source method, the file to be imported is never downloaded to the disk. So you won't have to worry about having as much disk space as your file to be imported.
 
-### Requirements
-
-There are some requirements that have to be fullfilled in order to perform imports.
-
-This requirement only applies for regions that have enabled the `SSH Tunnel` option. All these machines that Meteor will perform an SSH tunnel will need to have installed some binaries:
-
-- **Pipeviewer**: A terminal-based tool for monitoring the progress of data through a pipeline.
-- **MySQL Client**: The MySQL Command-Line Client (version >= 5.6).
-- **AWS CLI version 2**: The AWS Command Line Interface (CLI) is a unified tool to manage AWS services. 
-
-These are the commands to install these components depending on your Linux distribution.
-
-```bash
-# Debian / Ubuntu
-apt install pv
-apt install mariadb
-# Centos / AWS Linux
-yum install pv
-yum install mariadb
-```
-
-Here is the official documentation to install the AWS CLI version 2.
-
-[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-
 ## Exports
 
 This section is used to export databases and tables from any server.
@@ -199,33 +174,6 @@ The underlying process of the Export is similar of how the Deployments work. Bas
 To also reduce drastically the execution time needed to finish an export, all the process is performed in a single pipe and the file is automatically uploaded into Amazon S3. In this way the file to be exported is never downloaded to the disk.
 
 When the exporting process finishes a presigned URL is generated which we can use to download the file directly from Amazon S3.
-
-### Requirements
-
-There are some requirements that have to be fullfilled in order to perform exports.
-
-First of all and the most important is that a valid Amazon S3 account must be setup into the Administration Panel --> Amazon S3.
-
-Also we need to have installed some binaries in all regions that we have enabled the `SSH Tunnel` option. All these machines will need the following binaries:
-
-- **Pipeviewer**: A terminal-based tool for monitoring the progress of data through a pipeline.
-- **MySQL Client**: The MySQL Command-Line Client (version >= 5.6).
-- **AWS CLI version 2**: The AWS Command Line Interface (CLI) is a unified tool to manage AWS services. 
-
-These are the commands to install these components depending on your Linux distribution.
-
-```bash
-# Debian / Ubuntu
-apt install pv
-apt install mariadb
-# Centos / AWS Linux
-yum install pv
-yum install mariadb
-```
-
-Here is the official documentation to install the AWS CLI version 2.
-
-[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 ## Clones
 
@@ -304,30 +252,3 @@ After that, Meteor imports the imported file (located in Amazon S3) into the des
 ![alt text](../../assets/deployments/architecture-complex.png "Architecture - Cross Region")
 
 Also, no files are stored into the hard drive so we don't have to worry about to not to run out of disk space.
-
-### Requirements
-
-There are some requirements that have to be fullfilled in order to perform clones.
-
-First of all and the most important is that a valid Amazon S3 account must be setup into the Administration Panel --> Amazon S3.
-
-Also we need to have installed some binaries in all regions that we have enabled the `SSH Tunnel` option. All these machines will need the following binaries:
-
-- **Pipeviewer**: A terminal-based tool for monitoring the progress of data through a pipeline.
-- **MySQL Client**: The MySQL Command-Line Client (version >= 5.6).
-- **AWS CLI version 2**: The AWS Command Line Interface (CLI) is a unified tool to manage AWS services. 
-
-These are the commands to install these components depending on your Linux distribution.
-
-```bash
-# Debian / Ubuntu
-apt install pv
-apt install mariadb
-# Centos / AWS Linux
-yum install pv
-yum install mariadb
-```
-
-Here is the official documentation to install the AWS CLI version 2.
-
-[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)

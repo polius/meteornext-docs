@@ -26,6 +26,7 @@ module.exports = {
       '/': [
         '/',
         '/getting-started',
+        '/requirements',
         {
           text: 'Guides',
           collapsible: true,
