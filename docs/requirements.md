@@ -13,7 +13,7 @@ The Glibc version can be retrieved by executing the command `ldd --version` usin
 :::tip What is glibc?
 The GNU C Library project, commonly known as glibc, is the GNU Project's implementation of the C standard library that provides the core libraries for the GNU system and GNU/Linux systems, as well as many other systems that use Linux as the kernel.
 
-Some of the most best-known OS that supports this library are:
+Some of the most best-known OS that includes this library are:
 
 - Ubuntu
 - Debian
