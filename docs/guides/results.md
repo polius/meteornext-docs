@@ -7,7 +7,7 @@ The Results section is used to import `Meteor` file formats from any Deployment 
 ![alt text](../../assets/results/results1.png "Results 1")
 
 :::tip
-To better understand how this tool works and all features that contains please read first the **[Deployment Results](./deployments#results)** section.
+To better understand how this tool works and all features that contain, please read first the **[Deployment Results](./deployments#results)** section.
 :::
 
 ## Example

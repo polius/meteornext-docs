@@ -23,7 +23,7 @@ The Settings view is used to manage some application global parameters:
 
 ### License
 
-The License section shows information (in read-only) related of the license. We can see if the copy of the Meteor Next that we're using is activated and the amount of resources we currently have available.
+The License section shows information (in read-only) related to the license. We can see if the copy of the Meteor Next that we're using is activated and the amount of resources we currently have available.
 
 ![alt text](../../assets/administration/admin-settings-license.png "Admin - Settings - License")
 
@@ -39,7 +39,7 @@ The Amazon S3 section shows information about the credentials needed to connect 
 
 ![alt text](../../assets/administration/admin-settings-amazon.png "Admin - Settings - Amazon S3")
 
-Enable this option to store all generated files like deployment results into Amazon S3. Althought Meteor can work without Amazon S3, we strongly recommended to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the deployment results will be preserved when you perform a Meteor update.
+Enable this option to store all generated files like deployment results into Amazon S3. Although Meteor can work without Amazon S3, we strongly recommended choosing this storage engine. You won't have to worry any more about the storage left on your machin, and all the deployment results will be preserved when you perform a Meteor update.
 
 The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
@@ -83,7 +83,7 @@ The Security section is used to ensure some security policies for all Meteor acc
 - **Require number**: Enable this option to force new passwords to contain at least one number.
 - **Require special character**: Enable this option to force new passwords to contain at least one special character. 
 
-The following screenshot shows the behaviour when a user tries to login with an expired password. After proceeding to login a dialog is shown forcing the user to change their password.
+The following screenshot shows the behavior when a user tries to log in with an expired password. After proceeding to log in a dialog is shown forcing the user to change their password.
 
 ![alt text](../../assets/administration/admin-settings-security-password.png "Admin - Settings - Security - Password")
 
@@ -91,7 +91,7 @@ The following screenshot shows the behaviour when a user tries to login with an 
 
 - **Force Multi-Factor Authentication (MFA)**: Enable this option to force all users to have the MFA enabled.
 
-The following screenshot shows the behaviour when the MFA is forced and a user tries to login into the application without having their MFA enabled. A new dialog is shown forcing him/her to enable it.
+The following screenshot shows the behavior when the MFA is forced and a user tries to log in into the application without having their MFA enabled. A new dialog is shown forcing him/her to enable it.
 
 ![alt text](../../assets/administration/admin-settings-security-mfa.png "Admin - Settings - Security - MFA")
 
@@ -102,13 +102,13 @@ The following screenshot shows the behaviour when the MFA is forced and a user t
 This option is useful to add an extra security layer to the Administration panel. Let's make an example to better understand it.
 
 Imagine that in your company all users are accessing the Meteor app through `meteor.yourcompany.io`, admins included.
-In this scenario if a non-admin user could guess the credentials of an admin user, he/she would be able to login as an admin.
+In this scenario, if a non-admin user could guess the credentials of an admin user, he/she would be able to log in as an admin.
 
-To prevent this hypothetical situation you could setup another url such as `meteor-admin.yourcompany.io` pointing also to the Meteor application, and add this url to the `Administration URL` field.
-Finally you could restrict by network (a VPN for example) that only a set of users (the admin ones) could have access to this new url.
+To prevent this hypothetical situation, you could set up another URL such as `meteor-admin.yourcompany.io` pointing also to the Meteor application, and add this URL to the `Administration URL` field.
+Finally, you could restrict by network (a VPN for example) that only a set of users (the admin ones) could have access to this new URL.
 In this way, although a non-admin user could know an admin account, he/she would not be able to access to the admin panel.
 
-Mind that if a user accesses to a url different than the one set in `Administration URL`, he/she won't be able to access the admin panel (even if accesses with an admin account).
+Mind that if a user accesses to an URL different from the one set in `Administration URL`, he/she won't be able to access the admin panel (even if accesses with an admin account).
 
 :::warning
 If you set this field by mistake and therefore you lose access to the administration panel, keep in mind that this option can be reverted by changing a value in the database where Meteor resides.
@@ -129,7 +129,7 @@ Look for the `restrict_url` key and leave its value empty.
 {"password_age": "0", "password_min": "5", "password_lowercase": false, "password_uppercase": false, "password_number": false, "password_special": false, "force_mfa": false, "restrict_url": ""}
 ```
 
-The next time you login into the app, you will be able to access to the Administration panel.
+The next time you log in into the app, you will be able to access to the Administration panel.
 :::
 
 ### Advanced
@@ -138,11 +138,11 @@ The Advanced section it's used to tune up some parameters to ensure that Meteor 
 
 ![alt text](../../assets/administration/admin-settings-advanced.png "Admin - Settings - Advanced")
 
-When the memory cleanup happens a new worker process is started. This process then starts serving all next api requests transparently. The old worker waits up to 30 seconds to finish serving the remaining active requests (for example long running queries executed by the Client). After 30 seconds this worker is gracefully shutdown.
+When the memory cleanup happens a new worker process is started. This process then starts serving all next API requests transparently. The old worker waits up to 30 seconds to finish serving the remaining active requests (for example long-running queries executed by the Client). After 30 seconds this worker is gracefully shutdown.
 
-All active Deployments, Imports, Exports and Clones at the moment of the cleanup remain unaffected, since are processes outside the api ecosystem.
+All active Deployments, Imports, Exports and Clones at the moment of the cleanup remain unaffected, since are processes outside the API ecosystem.
 
-The only requests that can fail at the moment of the cleanup are long running queries executed by the Client that takes more than 30 seconds to finish. That's why it's recommended to set the cleanup execution time in non-working hours.
+The only requests that can fail at the moment of the cleanup are long-running queries executed by the Client that takes more than 30 seconds to finish. That's why it's recommended to set the cleanup execution time in non-working hours.
 
 This option is enabled by default and it's recommended not to disable it.
 
@@ -152,7 +152,7 @@ The users view is used to manage all the user accounts that have access to the M
 
 ![alt text](../../assets/administration/admin-users.png "Admin - Users")
 
-When creating a new user some fields are required:
+When creating a new user, some fields are required:
 
 - **Username**: A unique username that identifies the user.
 - **Email**: The user's email.
@@ -160,8 +160,8 @@ When creating a new user some fields are required:
 - **Coins**: The amount of coins to have.
 - **Group**: The group that the user will be part.
 - **Administrator**: To access the administration panel and all the deployments & restores from other users.
-- **Disable Account**: By locking an account will prevent the user from being able to login into the application. If the user is already logged in, the next action he does it will be automatically logged out.
-- **Force user to change password at next login**: At next login the user will be forced to change their password. It's useful if you create a new user with a random generated password but you want to be sure that at next login the user changes the password. This option is useful also when editing an existing user and you want to force that the user will change their password at next login. After the user changes their password this flag will be automatically disabled.
+- **Disable Account**: By locking an account will prevent the user from being able to log in into the application. If the user is already logged in, the next action he does, it will be automatically logged out.
+- **Force user to change password at next login**: At next login the user will be forced to change their password. It's useful if you create a new user with a random generated password, but you want to be sure that at next login the user changes the password. This option is useful also when editing an existing user and you want to force that the user will change their password at next login. After the user changes their password, this flag will be automatically disabled.
 
 ![alt text](../../assets/administration/admin-users-new.png "Admin - Users - New")
 
@@ -177,14 +177,14 @@ The Groups view is used to create groups to be assigned to your users. Here you 
 
 ### Creating a group
 
-To create a group there's some required fields to be filled:
+To create a group, there are some required fields to be filled:
 
 - **Name**: The name of this group (must be unique).
 - **Description**: The description to give this new group.
 - **Coins per day**: The coins that every day at 00:00 UTC will be automatically given to the users contained in this group. 
 - **Maximum coins**: The maximum coins that can reach. If a user currently has reached the maximum amount of coins, he won't be able to get more coins at the next coins delivery.
 
-Next you need to setup all the permissions from the different Meteor apps.
+Next, you need to set up all the permissions from the different Meteor apps.
 
 ### Inventory
 
@@ -194,11 +194,11 @@ Here you can manage the permissions of the Inventory.
 
 **RIGHTS**
 
-- **Access Inventory**: If this option is enabled all user's contained in this group will be able to access the inventory and the inventory icon will be shown at the top bar.
+- **Access Inventory**: If this option is enabled, all user's contained in this group will be able to access the inventory and the inventory icon will be shown at the top bar.
 
 **OWNERS**
 
-Owners are users that can manage Shared resources (servers, regions, environments, auxiliary connections, cloud keys).
+Owners are users that can manage shared resources (servers, regions, environments, auxiliary connections, cloud keys).
 A user that is not an owner of their group, will not be able to create shared resources. They will only be able to create Personal resources.
 
 :::tip INFO
@@ -209,7 +209,7 @@ A resource can be either Personal or Shared.
 :::
 
 :::tip
-Bear in mind that when you create a new group you won't be able to add owners, since you have not yet added users to this group (done in the [Users](#users) section). To add new owners, first add users to an existing group and then edit it. After that you will be able to select which users you want to be owners.
+Bear in mind that when you create a new group, you won't be able to add owners, since you have not yet added users to this group (done in the [Users](#users) section). To add new owners, first add users to an existing group and then edit it. After that, you will be able to select which users you want to be owners.
 :::
 
 ### Deployments
@@ -220,7 +220,7 @@ Here you can set the permissions affecting the Deployments section.
 
 **RIGHTS**
 
-- **Perform Deployments**: If this option is enabled all user's contained in this group will be able to access the deployments section and the deployments button will be visible at the top bar.
+- **Perform Deployments**: If this option is enabled, all user's contained in this group will be able to access the deployments section and the deployments button will be visible at the top bar.
     - **BASIC**: Enable this option to grant permissions to perform BASIC deployments.
     - **PRO**: Enable this option to grant permissions to perform PRO deployments.
 
@@ -228,9 +228,9 @@ Here you can set the permissions affecting the Deployments section.
 
 Here we can set the limits of all the deployment executions.
 
-- **Coins per Deployment**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment then it will have to wait for the next day or that some admin gives him/her more coins.
+- **Coins per Deployment**: How many coins will be consumed for every deployment. If a user does not have the required amount of coins to perform a deployment, then it will have to wait for the next day or that some admin gives him/her more coins.
 
-- **Concurrent Deployments**: This value is used to limit the amount of deployments that can be executed in the same time. It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of deployments at the same time.
+- **Concurrent Deployments**: This value is used to limit the amount of deployments that can be executed in the same time. It's useful to give stability to your infrastructure. In this way, you will avoid unwanted peaks of large amount of deployments at the same time.
 
 - **Execution Threads**: How many parallel connections will be spawned at database level. A value of 1 means that the execution will go database per database, one by one (sequentially). A value of 2 means that the execution will perform the deployment in two databases at the same time. And so on. So, the larger the value, the faster the execution will go and the less time it will take to finish. But keep in mind that also the larger the value, the more resources will consume.
 
@@ -238,7 +238,7 @@ The following screenshot shows a graphic example about having `Execution Threads
 
 ![alt text](../../assets/deployments/architecture.png "Deployments - Architecture")
 
-- **Execution Timeout**: This value (numeric) is optional and it's used to limit the execution time per query (in seconds). Queries that take more time to execute will be automatically terminated. It's useful if you want to limit the SQL queries that your users can execute avoiding unwanted slow/dangerous queries.
+- **Execution Timeout**: This value (numeric) is optional, and it's used to limit the execution time per query (in seconds). Queries that take more time to execute will be automatically terminated. It's useful if you want to limit the SQL queries that your users can execute, avoiding unwanted slow/dangerous queries.
 
 **RETENTION**
 
@@ -254,9 +254,9 @@ To set retention for files stored into S3, create an [Amazon S3 lifecycle rule](
 
 **SLACK**
 
-- **Enable Notifications**: Enable this option to receive an Slack notification everytime a deployment finishes, showing some information about it. It's useful if you want to track all the deployments that are being done in real-time.
+- **Enable Notifications**: Enable this option to receive a Slack notification every time a deployment finishes, showing some information about it. It's useful if you want to track all the deployments that are being done in real-time.
     - **Channel Name**: The Slack channel's name to send the notifications.
-    - **Webhook URL**: The Slack's weebhook URL to sent all the notifications.
+    - **Webhook URL**: The Slack's webhook URL to sent all the notifications.
 
 ### Monitoring
 
@@ -266,7 +266,7 @@ Here you can set the permissions affecting the Monitoring section.
 
 **RIGHTS**
 
-- **Access Monitoring**: If this option is enabled all user's contained in this group will be able to access the monitoring section and the monitoring button will be visible at the top bar.
+- **Access Monitoring**: If this option is enabled, all user's contained in this group will be able to access the monitoring section and the monitoring button will be visible at the top bar.
 
 **LIMITS**
 
@@ -280,19 +280,19 @@ Here you can set the permissions affecting the Utils section.
 
 **RIGHTS**
 
-- **Access Utils**: If this option is enabled all user's contained in this group will be able to access the utils section and the utils button will be visible at the top bar.
+- **Access Utils**: If this option is enabled, all user's contained in this group will be able to access the utils section and the utils button will be visible at the top bar.
 
 **LIMITS**
 
 - **Maximum Size (MB)**: This value is optional and it's used to limit the maximum file size in MB allowed to perform File Imports.
 
-- **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of Imports, Exports and Clones that can be executed in the same time. If this values is setup then an automated queue system will start and will only execute X operations every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way you will avoid unwanted peaks of large amount of data transfer at the same time.
+- **Concurrent executions**: This value (numeric) is optional and it's used to limit the amount of Imports, Exports and Clones that can be executed in the same time. If this values is set up then an automated queue system will start and will only execute X operations every 10 seconds (using polling). It's useful to give stability to your infrastructure. In this way, you will avoid unwanted peaks of large amount of data transfer at the same time.
 
 **SLACK**
 
-- **Enable Notifications**: Enable this option to receive an Slack notification everytime a restore finishes, showing some information about it. It's useful if you want to track all the restores that are being done in real-time.
+- **Enable Notifications**: Enable this option to receive a Slack notification every time a restore finishes, showing some information about it. It's useful if you want to track all the restores that are being done in real-time.
     - **Channel Name**: The Slack channel's name to send the notifications.
-    - **Webhook URL**: The Slack's weebhook URL to sent all the notifications.
+    - **Webhook URL**: The Slack's webhook URL to sent all the notifications.
 
 ### Client
 
@@ -302,32 +302,32 @@ Here you can set the permissions affecting the Client section.
 
 **RIGHTS**
 
-- **Access Client**: If this option is enabled all user's contained in this group will be able to access the client section and the client button will be visible at the top bar.
+- **Access Client**: If this option is enabled, all user's contained in this group will be able to access the client section and the client button will be visible at the top bar.
 
 **LIMITS**
 
 - **Apply Limits**: Enable this option to apply limits of all executed queries through Client section.
     - **Execution Timeout Mode**: This option can be either `All Queries` or `Only SELECTs`.
-    - **Execution Timeout Value**: This value (measured in seconds) is used to limit the maximum execution time that queries can last (all queries or only selects, depending on the mode selected). If a query takes more time to be executed, it will be automatically stopped raising a timeout error.
+    - **Execution Timeout Value**: This value (measured in seconds) is used to limit the maximum execution time that queries can last (all queries or only selects, depending on the mode selected). If a query takes more time to be executed, it will be automatically stopped, raising a timeout error.
     - **Execution Rows**: This value (measured in number of rows) is used to limit the maximum returned rows returned by SELECTs. It can be useful to prevent users to SELECT millions of rows of Production databases.
 
 **TRACKING**
 
-- **Track Queries**: Enable this option to store all the queries that are being executed in the Client section. It's useful if you want to know which kind of queries your users are executing. Also it can be useful in case of someone executes a query and breaks something. In this way you will know exactly what queries the user executed and this information may come in handy in order to solve the issue.
-    - **Tracking Mode**: This option can be either `All Queries` to track every query the users execute or `All Queries (exclude SELECTs)` to exclude SELECTs and EXPLAINs to be tracked.
+- **Track Queries**: Enable this option to store all the queries that are being executed in the Client section. It's useful if you want to know which kind of queries your users are executing. Also, it can be useful in case of someone executes a query and breaks something. In this way you will know exactly what queries the user executed, and this information may come in handy in order to solve the issue.
+    - **Tracking Mode**: This option can be either `All Queries` to track every query the users execute, or `All Queries (exclude SELECTs)` to exclude SELECTs and EXPLAINs to be tracked.
     - **Tracking Retention Days**: This value is used to determine how many days we would like to retain the queries tracked.
 
 ## Inventory
 
 The Inventory view is used to manage all the resources ([Servers](#servers), [Regions](#regions), [Environments](#environments), [Auxiliary Connections](#auxiliary-connections), [Cloud Keys](#cloud-keys)) for all Meteor accounts.
 
-To change from one resource to another click the `SERVERS` button and then choose another one.
+To change from one resource to another, click the `SERVERS` button and then choose another one.
 
 ![alt text](../../assets/administration/admin-inventory-select.png "Admin - Inventory - Selector")
 
 ### Servers
 
-The default view when accessing the Inventoy is the Servers. Here you can manage all servers for all Meteor users.
+The default view when accessing the Inventory is the Servers. Here you can manage all servers for all Meteor users.
 
 ![alt text](../../assets/administration/admin-inventory-servers.png "Admin - Inventory - Servers")
 
@@ -413,7 +413,7 @@ Track all the queries being executed in the [Client](./client) section by all us
 ![alt text](../../assets/administration/admin-client-queries.png "Admin - Client - Queries")
 
 :::tip
-Mind that to start tracking all the executed queries you first have to enable de `Track Queries` option in the [Groups](#client) section
+Mind that to start tracking all the executed queries you first have to enable the `Track Queries` option in the [Groups](#client) section
 :::
 
 You can also filter the queries by some fields.
@@ -426,6 +426,6 @@ Manage the servers that your users have added in their [Client](./client). You c
 
 ![alt text](../../assets/administration/admin-client-servers.png "Admin - Client - Servers")
 
-Also you can perform any kind of filtering.
+Also, you can perform any kind of filtering.
 
 ![alt text](../../assets/administration/admin-client-servers-filter.png "Admin - Client - Servers - Filter")

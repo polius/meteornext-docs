@@ -4,14 +4,14 @@ Meteor Next is a multiplatform web application that fully automatizes MySQL data
 
 ## Features
 
-- 🚀 **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
+- 🚀 **Deployments**: Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way, getting a detailed summary.
 - 🖥️ **Monitoring**: Perform active monitoring in all the database servers (server metrics, parameters and queries).
 - 💾 **Utils**: A suite of different apps to perform massive data transfer operations.
 - ⚡ **Client**: A complete MySQL Client.
 
 ### 🚀 Deployments
 
-Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way getting a detailed summary.
+Execute thousands or millions of SQL queries to multiple servers/databases in a secured and automated way, getting a detailed summary.
 
 ![alt text](../assets/deployments/deployments.png "Deployments - List")
 
@@ -35,7 +35,7 @@ Perform active monitoring in all the database servers (server metrics, parameter
 
 ### 💾 Utils
 
-A suite of different apps to perform massive data transfer.
+A suite of different apps to perform massive data transfer operations.
 
 - **IMPORTS**
 
@@ -86,10 +86,10 @@ A complete MySQL Client.
 Meteor Next has been built to be secure and reliable. Here are some aspects to take into account:
 
 - Meteor Next does NOT collect any kind of data. All data stored in your database stays in your database.
-- Meteor Next can work offline without needing internet connection with one exception. The application needs connection to https://license.meteor2.io to be able to check if the license is either activated or expired.
+- Meteor Next can work offline without needing internet connection with one exception. The application needs connection to https://license.meteornext.io to be able to check if the license is either activated or expired.
 - Meteor Next has been audited by Ackcent to guarantee that there's no security vulnerabilities.
 - All stored user passwords created by the app are encrypted.
 - Meteor Next supports up to two MFA methods: Virtual 2FA Device and Security Keys.
-- Be able to define a customized password policy to enforce that all users have an strong password and decide the password age.
+- Be able to define a customized password policy to enforce that all users have a strong password and decide the password age.
 - Be able to force that all users have the MFA enabled.
-- Be able to restrict the access to the administration panel only to a specific IP addreess or domain.
+- Be able to restrict the access to the administration panel only to a specific IP address or domain.

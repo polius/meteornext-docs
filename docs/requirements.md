@@ -34,7 +34,7 @@ This requirement only applies for regions that have the `SSH Tunnel` option enab
 - **MySQL Client**: The MySQL Command-Line Client (version >= 5.6).
 - **AWS CLI version 2**: The AWS Command Line Interface (CLI) is a unified tool to manage AWS services. 
 
-These are the commands to install these components depending on your Linux distribution.
+These are the commands to install these components, depending on your Linux distribution.
 
 ```bash
 # Debian / Ubuntu
@@ -51,7 +51,7 @@ Here is the official documentation to install the AWS CLI version 2.
 
 In order to perform Exports and Clones there is another requirement to be fulfilled. It is needed to have a valid `Amazon S3` account configured in the Administration Panel --> Amazon S3.
 
-The advantage of using the Amazon S3 is that we won't have to worry about of running out of disk space or by exhausing the bandwith.
+The advantage of using the Amazon S3 is that we won't have to worry about of running out of disk space or by exhausting the bandwidth.
 
 ## Client
 

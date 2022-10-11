@@ -1,13 +1,13 @@
 # Deployments
 
-Deployments is one of the most interesting apps in Meteor Next. Gives you the ability to execute SQL queries (including logic) massively, in a controlled and safe way to multiple servers.
+Deployments is one of the most interesting apps in Meteor Next. Gives you the ability to execute SQL queries (including logic) massively, in a controlled and safe way, to multiple servers.
 
 In a nutshell:
 
-- 🚀 **Fast**: Executions make use of parallellism + cross-region to balance the workload to different servers and to maximize the throughput without affecting the current performance.
+- 🚀 **Fast**: Executions make use of parallelism + cross-region to balance the workload to different servers and to maximize the throughput without affecting the current performance.
 - 💪 **Resilient**: Executions have the capacity to recover quickly from difficulties (network and query errors).
 - 🐍 **Python**: Add Python logic to deployments for complex executions.
-- ✨ **Transform**: Perform searchs and data transformation with the execution results.
+- ✨ **Transform**: Perform searches and data transformation with the execution results.
 - ✉️ **Share**: Share a deployment results with other users.
 - 🕒 **Schedule**: Decide when a deployment should start.
 - 🔎 **Inspect**: Search and filter every deployment done in the past.
@@ -32,17 +32,17 @@ In a nutshell:
 There are two factors to take into account:
 
 - 🚀 **Parallelism**: The deployment is performed at the same time in multiple database servers.
-- 🌎 **Cross-Region**: The deployment is executed in each Region using SSH Tunnel reducing drastically the delay between queries.
+- 🌎 **Cross-Region**: The deployment is executed in each Region using SSH Tunnel, reducing drastically the delay between queries.
 
 ---
 
-To put a little of context before going further remember that a **Region** is a resource that is assigned to one or more servers and is identified by a name and with the option to enable SSH Tunnel.
+To put a little of context before going further, remember that a **Region** is a resource that is assigned to one or more servers and is identified by a name and with the option to enable SSH Tunnel.
 
 ![alt text](../../assets/inventory/regions.png "Inventory - Regions")
 
 <p style="text-align:center; margin-top:-10px">List of regions</p>
 
-So when we're talking to Regions that have the SSH Tunnel enabled (Cross-Region) think about Linux machines that Meteor uses to balance the deployment workload and therefore to speed-up the execution.
+So when we're talking to Regions that have the SSH Tunnel enabled (Cross-Region) think about Linux machines that Meteor uses to balance the deployment workload and therefore to speed up the execution.
 
 ---
 
@@ -50,13 +50,13 @@ Here's an example of a deployment being executed in four different regions: Nort
 
 ![alt text](../../assets/deployments/architecture.png "Deployments - Architecture")
 
-As we can see Meteor Next uses a 3-Level of parallelism. Firstly the parallelisation is performed at region level. Subsequently, for each region a new depth level of concurrency is started for each server, and finally a new level of parallelism is performed for databases.
+As we can see, Meteor Next uses a 3-Level of parallelism. Firstly, the parallelization is performed at region level. Subsequently, for each region a new depth level of concurrency is started for each server, and finally a new level of parallelism is performed for databases.
 
-To better understand how all this works let's make two possible scenarios:
+To better understand how all this works, let's make two possible scenarios:
 
 ### Not using Cross Region
 
-To start a deployment is required to choose an Environment. Remember that an environment is a resource that contains servers (nothing more, nothing less). It's a way to organize servers.
+To start a deployment, is required to choose an Environment. Remember that an environment is a resource that contains servers (nothing more, nothing less). It's a way to organize servers.
 
 Let's say that we choose the environment **Production** that contains 7 servers:
 
@@ -72,7 +72,7 @@ Let's say that we choose the environment **Production** that contains 7 servers:
 
 As we can see there's a total of four regions and each region contains two servers except SA (South America) which contains only one.
 
-Here's a image representing this example:
+Here's an image representing this example:
 
 ![alt text](../../assets/deployments/architecture-simple.png "Architecture - Not using Cross Region")
 
@@ -84,9 +84,9 @@ By using this scenario, the execution will be affected by high latency, since al
 
 ### Using Cross Region
 
-We should start using Cross Region when we have several servers in different geographical regions (eg: Europe, North America, Asia).
+We should start using Cross Region when we have several servers in different geographical regions (e.g., Europe, North America, Asia).
 
-Imagine that we have Meteor Next installed in a machine located in Europe. What would happen if we would like to execute SQL queries to a server located in another region? Well, we will have to face a lot of delay, since we would have to execute queries from a long distance (eg: Europe <--> Asia).
+Imagine that we have Meteor Next installed in a machine located in Europe. What would happen if we would like to execute SQL queries to a server located in another region? Well, we will have to face a lot of delay, since we would have to execute queries from a long distance (e.g., Europe, Asia).
 
 By using Cross Region, all the executions are done in each region. In this way the latency is reduced drastically and furthermore all the computing workload is balanced in different machines.
 
@@ -106,13 +106,13 @@ Here's an example of a Cross-Region deployment:
 
 <p style="text-align:center; margin-top:-10px">Using Cross Region</p>
 
-By using Cross-Regions (SSH Tunnel enabled), Meteor Next goes an step further. Aside from providing a tunnel to connect to a server using an intermediary machine, Meteor also deploys a binary to each SSH Tunnel machine (in ~/.meteornext).
+By using Cross-Regions (SSH Tunnel enabled), Meteor Next goes a step further. Aside from providing a tunnel to connect to a server using an intermediary machine, Meteor also deploys a binary to each SSH Tunnel machine (in ~/.meteornext).
 
 This binary is in charge of executing the deployment for the servers that are located in their region. When the execution finishes, all the execution details are sent to the Docker container where Meteor Next resides.
 
-After that Meteor merges all the logs from the different regions and leaves it ready for the user to be viewed.
+After that, Meteor merges all the logs from the different regions and leaves it ready for the user to be viewed.
 
-In this scenario the execution goes much faster to finish. There is no longer latency between SQL queries and the computing process is balanced between different regions.
+In this scenario, the execution goes much faster to finish. There is no longer latency between SQL queries and the computing process is balanced between different regions.
 
 :::tip
 It's recommended to use Cross-Region deployments when you have different servers that are located in different geographic regions.
@@ -120,7 +120,7 @@ It's recommended to use Cross-Region deployments when you have different servers
 
 ## Releases
 
-A release is an resource that helps us to organize deployments. It's like a folder that contains deployments.
+A release is a resource that helps us to organize deployments. It's like a folder that contains deployments.
 
 ![alt text](../../assets/deployments/releases.png "Deployments - Releases")
 
@@ -129,17 +129,17 @@ A release is an resource that helps us to organize deployments. It's like a fold
 A Release is identified by a name and a flag called `Active` that can be either enabled or disabled.
 
 A release marked as active means that all their deployments will be visible (in the Deployments section).
-Accordingly, a release marked as non active means that all their deployments will be hidden (in the Deployments section).
+Accordingly, a release marked as non-active means that all their deployments will be hidden (in the Deployments section).
 
 **Why is this Active flag needed?**
 
-Imagine that we are Database Engineers and we are in charge to make database deployments for daily needs (bug fixes, new features or data retrieval).
+Imagine that we are Database Engineers, and we are in charge to make database deployments for daily needs (bug fixes, new features or data retrieval).
 
-Every month the company releases a new version of their product. We have a Release created "3.1.0" with several deployments already done.
+Every month, the company releases a new version of their product. We have a Release created "3.1.0" with several deployments already done.
 
-Today the company releases in Production the 3.1.0 Release for all their customers containing all the deployments we made.
+Today the company releases in Production the 3.1.0 Release for all their customers, containing all the deployments we made.
 
-At this point we are not still interested of seeing all the past deployments. We just want to have a new release to contain all the future deployments for the next monthly company's release.
+At this point, we are not still interested of seeing all the past deployments. We just want to have a new release to contain all the future deployments for the next monthly company's release.
 
 What we do is to create a new active Release with the name "3.2.0" and update the previous one (3.1.0) setting the active flag disabled.
 
@@ -210,7 +210,7 @@ Turn on this option to [schedule](#scheduled) the execution.
 
 **Start execution**
 
-Turn on this option to start the execution just after creating the deploy. If you want to create the deploy but to execute it later, do not toggle this checkbox.
+Turn on this option to start the execution just after creating the deployment. If you want to create the deployment but to execute it later, do not toggle this checkbox.
 
 ## Pro
 
@@ -302,13 +302,13 @@ Turn on this option to [schedule](#scheduled) the execution.
 
 **Start execution**
 
-Turn on this option to start the execution just after creating the deploy. If you want to create the deploy but to execute it later, do not toggle this checkbox.
+Turn on this option to start the execution just after creating the deployment. If you want to create the deployment but to execute it later, do not toggle this checkbox.
 
 ### Mastering Pro Deployments
 
 Pro Deployments are extremely useful if you want to add some application logic in your execution.
 
-Before showing some examples to better undestand how this all works, let's start explaining the parts of the blueprint:
+Before showing some examples to better understand how this all works, let's start explaining the parts of the blueprint:
 
 **CORE COMPONENTS**
 
@@ -386,7 +386,7 @@ meteor.begin()
 meteor.commit()
 ```
 
-`meteor.rollback()` This method is used to rollback a transaction.
+`meteor.rollback()` This method is used to roll back a transaction.
 
 ```python
 meteor.rollback()
@@ -400,7 +400,7 @@ meteor.is_error()
 
 **USER DEFINED METHODS**
 
-In the last part of the blueprint there's some methods that may be used in some deployments. Here, if you wish, you could add more methods:
+In the last part of the blueprint, there are some methods that may be used in some deployments. Here, if you wish, you could add more methods:
 
 `search(...)`: This method searches a key value in a list of dictionaries.
 
@@ -429,7 +429,7 @@ Let's see some examples to better understand how all of this works together.
 
 **DESCRIPTION**
 
-This example shows how to execute a query to the emp database.
+This example shows how to execute a query to the "emp" database.
 
 **BLUEPRINT**
 
@@ -466,9 +466,9 @@ def main(self, meteor, environment, region, server, database):
 ```
 
 :::tip
-If you want to execute a query that contains an argument and you also want to add the character `%` in some part of the query, since Python detects the `%` value as another parameter, to prevent this behaviour add two `%` instead of one.
+If you want to execute a query that contains an argument, and you also want to add the character `%` in some part of the query, since Python detects the `%` value as another parameter, to prevent this behaviour add two `%` instead of one.
 
-The following example is getting all the employees with a salary of 1000 that their name starts with the letter a.
+The following example is getting all the employees with a salary of 1000 that their name starts with the letter "a".
 
 ```python
 def __init__(self):
@@ -496,7 +496,7 @@ def main(self, meteor, environment, region, server, database):
         meteor.execute(query=self.queries['1'], database=database)
 ```
 
-In this case, since we're not passing any arguments to the query, it's not necessary to double the `%` character. This query will retrieve all employees that their name starts with the letter a.
+In this case, since we're not passing any arguments to the query, it's not necessary to double the `%` character. This query will retrieve all employees that their name starts with the letter "a".
 :::
 
 ### Example 3: Handling query results
@@ -522,7 +522,7 @@ def main(self, meteor, environment, region, server, database):
             meteor.execute(query=self.queries['2'], args=(i['id'], i['name']), database=database)
 ```
 
-As you may think all this use case could have been reduced by executing a single query:
+As you may think, all this use case could have been reduced by executing a single query:
 
 ```sql
 INSERT INTO employees_test (id, name)
@@ -537,7 +537,7 @@ Mind that the goal of these examples is to familiarize yourself working with thi
 
 **DESCRIPTION**
 
-This example shows how to handle JSON values stored in a string (eg: VARCHAR) field type.
+This example shows how to handle JSON values stored in a string (e.g., VARCHAR) field type.
 
 **USE CASE**
 
@@ -572,7 +572,7 @@ def main(self, meteor, environment, region, server, database):
 
 ### Example 5: Working with Auxiliary Connections
 
-**DESCRIPION**
+**DESCRIPTION**
 
 An auxiliary connection is a server that is used in Pro Deployments. It's used when we want to execute a query to a server that is not included in the selected environment.
 
@@ -582,7 +582,7 @@ An auxiliary connection is a server that is used in Pro Deployments. It's used w
 
 **USE CASE**
 
-Get all languages that our company support. Iterate all databases that their name ends with '_logs' in all the servers that are included in the selected environment. For all these databases insert the languages retrieved to the 'customer_languages' table. 
+Get all languages that our company support. Iterate all databases that their name ends with '_logs' in all the servers that are included in the selected environment. For all these databases, insert the languages retrieved to the 'customer_languages' table. 
 
 **BLUEPRINT**
 
@@ -682,7 +682,7 @@ Imagine that we selected the `TEST` environment and this one contains two server
 - **SERVER1**: hello1, hello2
 - **SERVER2**: hello3
 
-Following the above blueprint, when we start the deployment these are the queries that will be executed (once per database).
+Following the above blueprint, when we start the deployment, these are the queries that will be executed (once per database).
 
 **SERVER1**
 
@@ -695,7 +695,7 @@ Following the above blueprint, when we start the deployment these are the querie
 
 Despite we've written just one query, as we added a parameter to the query, it has caused that in the end we have three different queries.
 
-By adding an alias to the query, we tell Meteor to treat all these queries as one. What will happen is that when the Deployment finishes we will see all these queries results together. We won't have to select each query one by one to get the results.
+By adding an alias to the query, we tell Meteor to treat all these queries as one. What will happen is that when the Deployment finishes, we will see all these queries results together. We won't have to select each query one by one to get the results.
 
 So, query alias will mostly be needed when executing queries that have arguments that their value can differ.
 
@@ -723,7 +723,7 @@ def main(self, meteor, environment, region, server, database):
     meteor.commit()
 ```
 
-Deploying the previous blueprint will actually execute the INSERT query only once. The first one will be rollbacked and the second one will be commited.
+Deploying the previous blueprint will actually execute the INSERT query only once. The first one will be rollbacked and the second one will be committed.
 
 :::tip INFO
 Bear in mind that if we start a transaction into an already started one, all the queries executed in the previous transaction will be rollbacked and then a new transaction will start.
@@ -752,7 +752,7 @@ The output parameter is used to suppress the execution output of a query.
 
 Imagine you need to execute millions of queries and some of them are big SELECTs, just needed to perform some logic and not for data retrieval.
 
-By disabling the output of these SELECT queries, the deployment execution will take less time to finish and the execution log will take less space.
+By disabling the output of these SELECT queries, the deployment execution will take less time to finish, and the execution log will take less space.
 
 :::tip
 If you need to execute thousands of queries, disable the output for all SELECTs just needed to perform some logic and not for data retrieval.
@@ -812,7 +812,7 @@ def main(self, meteor, environment, region, server, database):
 
 **DESCRIPTION**
 
-Pro Deployments fail when some error is introduced into the Python code blueprint. For example using a variable that has not yet being declared, or trying to access a list element that does not exist.
+Pro Deployments fail when some error is introduced into the Python code blueprint. For example, using a variable that has not yet being declared, or trying to access a list element that does not exist.
 
 This example shows how to properly debug these unwanted code errors.
 
@@ -828,9 +828,9 @@ def main(self, meteor, environment, region, server, database):
 
 If you find that your Pro Deployment fails, try to put all your code into the _try_ scope.
 
-After that execute the deployment and then go to the `RESULTS` tab, apply a `Data Transformation`, choose the `[ALIAS] ERROR` query and you will get what kind of error has occurred and the line where the error is located.
+After that, execute the deployment and then go to the `RESULTS` tab, apply a `Data Transformation`, choose the `[ALIAS] ERROR` query, and you will get what kind of error has occurred and the line where the error is located.
 
-In the above example this is what we would receive:
+In the above example, this is what we would receive:
 
 - **Class**: ZeroDivisionError
 - **Description**: division by zero
@@ -840,9 +840,9 @@ In the above example this is what we would receive:
 
 **DESCRIPTION**
 
-Sometimes when executing massive DELETEs it can lead to unwanted table locks. Also this operation can be tidious and most of the times it can fail due to unexpected circumstances: timeouts, deadlocks or cpu spikes.
+Sometimes when executing massive DELETEs it can lead to unwanted table locks. Also, this operation can be tedious and most of the time it can fail due to unexpected circumstances: timeouts, deadlocks or CPU spikes.
 
-The recommended way of deleting millions rows of a table is by doing it in chunks.
+The recommended way of deleting millions of rows of a table is by doing it in chunks.
 
 **USE CASE**
 
@@ -877,23 +877,23 @@ When executing INSERTs, UPDATEs or DELETEs the `meteor.execute(...)` method retu
 
 The transaction is used to reflect the changes of each bulk query immediately as they are being executed. If the DELETE query had been executed without using transactions, other connections would not have seen the DELETE operation until the deployment had finished.
 
-Being said that, it's always recommended to use transactions when executing queries that are splitted in chunks (INSERTs, UPDATEs or DELETEs).
+Being said that, it's always recommended to use transactions when executing queries that are separated in chunks (INSERTs, UPDATEs or DELETEs).
 :::
 
 ## Scheduled
 
 Scheduled deployments are used to program a deployment to be executed automatically in a given time.
 
-This feature comes in four flavors:
+This feature comes in four flavours:
 
-- **[One-Time execution](#one-time-execution)**: Execute a deployment once in a given datetime.
+- **[One-Time execution](#one-time-execution)**: Execute a deployment once in a given date time.
 - **[Daily execution](#daily-execution)**: Execute a deployment each day at the same time.
 - **[Weekly execution](#weekly-execution)**: Execute a deployment in a specific time on the desired week days.
 - **[Monthly execution](#monthly-execution)**: Execute a deployment in a specific time on the desired months.
 
 ### One-Time execution
 
-One-Time executions are used to execute a deployment in a specific datetime.
+One-Time executions are used to execute a deployment in a specific date time.
 
 The following image shows an example of a one-time execution.
 
@@ -931,7 +931,7 @@ When a deployment starts, the execution goes through different steps: Validation
 
 **VALIDATION**
 
-A network reachability is performed among the different servers that belong to the selected environment. Also checks if the server credentials (hostname, port, username, password, ssl, ssh) are valid.
+A network reachability is performed among the different servers that belong to the selected environment. Also checks if the server credentials (hostname, port, username, password, SSL, SSH) are valid.
 
 **EXECUTION**
 
@@ -947,13 +947,13 @@ Imagine a deployment executing `DROP TABLE tbl`. The execution will check if the
 
 **POST EXECUTION**
 
-Here we can track the status of all the tasks that are performed after the execution.
+Here, we can track the status of all the tasks that are performed after the execution.
 
 1. The execution results are retrieved from all regions.
 2. The execution results are merged and ordered accordingly.
 3. A single compressed file is generated containing all the execution information (status and results).
 4. (Optional) The execution details are uploaded to Amazon S3.
-5. All regions are cleaned. Basically all non compressed logs from the execution are removed.
+5. All regions are cleaned. Basically, all non compressed logs from the execution are removed.
 6. (Optional) A Slack message is sent to notify that the deployment has finished.
 
 **QUERIES**
@@ -962,7 +962,7 @@ A summary of the total queries that have been executed, how many succeeded, fail
 
 ### Actions
 
-On the top menu bar there are some actions to perform:
+On the top menu bar, there are some actions to perform:
 
 **PARAMETERS**
 
@@ -972,7 +972,7 @@ Shows the deployment details about the current execution (in read-only).
 
 **EXECUTIONS**
 
-Shows all the executions done in the current deployment. In this dialog we can see a previous execution by clicking the right arrow in the last column of the table.
+Shows all the executions done in the current deployment. In this screen, we can see a previous execution by clicking the right arrow in the last column of the table.
 
 ![alt text](../../assets/deployments/executions.png "Deployment - Executions")
 
@@ -982,7 +982,7 @@ It's used to perform another execution from the current deployment. It's useful 
 
 ![alt text](../../assets/deployments/re-deploy.png "Deployment - Re-deploy")
 
-Imagine that we deployed some queries for all servers that are part of the `Development` environment, and now it's time to deploy it into `Production`. At this point we have two options, to create a new deployment from scratch or to re-deploy the existing one changing the environment field from "Development" to "Production".
+Imagine that we deployed some queries for all servers that are part of the `Development` environment, and now it's time to deploy it into `Production`. At this point we have two options, to create a new deployment from scratch or to re-deploy the existing one, changing the environment field from "Development" to "Production".
 
 :::tip
 It's recommended to always perform a Re-Deploy if the deployment we want to perform is related to an existing one.
@@ -990,7 +990,7 @@ It's recommended to always perform a Re-Deploy if the deployment we want to perf
 
 **SHARE**
 
-This option is used to share the current deployment make it visible for other users that have a Meteor account.
+This option is used to share the current deployment to make it visible for other users that have a Meteor account.
 
 There are two URLs available. The first one it's to access the execution details and the second one is to see the execution results.
 
@@ -999,14 +999,14 @@ There are two URLs available. The first one it's to access the execution details
 :::tip INFO
 If a deployment is not shared, the owner will be the only one allowed to access it.
 
-Otherwise any user with a Meteor account will have access to see the deployment execution (in ReadOnly) and also will be able to see the execution results.
+Otherwise, any user with a Meteor account will have access to see the deployment execution (in read-only) and also will be able to see the execution results.
 :::
 
 ## Results
 
 When a deployment finishes, we can see a detailed log in table format of all queries that have been executed.
 
-Every row is an executed query and the table is sorted in ascending order by the datetime it was run.
+Every row is an executed query, and the table is sorted in ascending order by the date time it was run.
 
 ![alt text](../../assets/deployments/results.png "Deployment - Results")
 
@@ -1014,21 +1014,21 @@ Every row is an executed query and the table is sorted in ascending order by the
 
 Every row contains 11 columns:
 
-- **Timestamp**: The datetime when the query was executed.
+- **Timestamp**: The date time when the query was executed.
 - **Environment**: The selected environment.
 - **Region**: The server's region.
 - **Server**: The server used to execute the query.
 - **Database**: The database used to execute the query. 
 - **Query**: The query that has been executed.
 - **Execution Status**: the execution's outcome. Can be either green (success), yellow (rollbacked), red (error).
-- **Execution Response**: The engine response after executing the query. When a query fails it shows the execution error.
+- **Execution Response**: The engine response after executing the query. When a query fails, it shows the execution error.
 - **Execution Time**: The query's elapsed time.
-- **Execution Rows**: How many rows were affected by executing the query. Executing a SELECT will show the amount of rows returned and executing an INSERT/UPDATE/DELETE will show the amount of rows affected.
+- **Execution Rows**: How many rows were affected by executing the query. Executing a SELECT will show the amount of rows returned, and executing an INSERT/UPDATE/DELETE will show the amount of rows affected.
 - **Execution Output**: The result of executing the query. This column will show the SELECT's results formatted in JSON.
 
 ### Features
 
-There's some useful actions that can be done into the results section:
+There are some useful actions that can be done into the results section:
 
 ![alt text](../../assets/deployments/results-bar.png "Deployment - Results Bar")
 
@@ -1038,7 +1038,7 @@ Perform searches across all rows and columns.
 
 The following screenshot shows an example of a search. The table shows all rows which one of their columns contain the `Europe` string.
 
-Furthermore as It can be seen in the screenshot, there's one additional way to filter results. By clicking the icon placed in the right of a column name we can filter the results by that column.
+Furthermore, as It can be seen in the screenshot, there's one additional way to filter results. By clicking the icon placed in the right of a column name, we can filter the results by that column.
 The available modes are: `Contains`, `Not contains`, `Equals`, `Not equal`, `Starts with` and `Ends with`.
 
 ![alt text](../../assets/deployments/results-search.png "Deployment - Results Search")
@@ -1077,7 +1077,7 @@ Let's make an example to better understand it.
 
 As we can see in the first screenshot of this section, the results table shows the execution of a `SELECT * FROM employees` query in different servers and databases.
 
-Imagine that after executing this query we would like to get the employee that earns more money. Having all the SELECTs results in JSON format would be a bit unfortable to perform any sorting by a column name.
+Imagine that after executing this query we would like to get the employee that earns more money. Having all the SELECTs results in JSON format, it is a bit unhandy to perform any sorting by a column name.
 
 - Execution Outputs
 
@@ -1113,8 +1113,8 @@ So, to get which is the employee that earns more, just sort the `salary` column 
 This option is used to group all queries that have failed. Here we will see:
 
 - **Query**: The query that has failed.
-- **Error**: The error that the engine returned when executing the query (eg: The table does not exist).
-- **Count**: The amount of times a query failed (eg: If we execute the same query in several databases, this value will be equal of the times this query failed in some of them).
+- **Error**: The error that the engine returned when executing the query (e.g., The table does not exist).
+- **Count**: The amount of times a query failed (e.g., If we execute the same query in several databases, this value will be equal to the times this query failed in some of them).
 - **Databases**: The list of databases (separated by commas) that the query has failed.
 
 ![alt text](../../assets/deployments/results-errors.png "Deployment - Results Errors")
@@ -1123,7 +1123,7 @@ This option is used to group all queries that have failed. Here we will see:
 
 This option is used to export the data in the table. There are three available formats:
 
-- **Meteor**: A Meteor representation of the data table. This mode is useful as you can share a Meteor file format to another user and they will able to import this file in the [Meteor Results](./results) section to see exactly the data you exported, and then perform any sorting/filtering/search operation.
+- **Meteor**: A Meteor representation of the data table. This mode is useful as you can share a Meteor file format to another user, and they will be able to import this file in the [Meteor Results](./results) section to see exactly the data you exported, and then perform any sorting/filtering/search operation.
 - **JSON**: A JSON representation of the table data.
 - **CSV**: A CSV representation of the table data.
 

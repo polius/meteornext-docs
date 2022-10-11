@@ -9,13 +9,13 @@ The Profile section is used to manage some security parameters to the user's acc
 
 ## Change Password
 
-To change the password of the current account click the `Change Password` button and fill all the required fields.
+To change the password of the current account, click the `Change Password` button and fill all the required fields.
 
 ![alt text](../../assets/profile/profile-password.png "Profile - Change Password")
 
 ## Manage MFA
 
-To manage the MFA of the current account click the `Manage MFA` button. There's two available methods:
+To manage the MFA of the current account, click the `Manage MFA` button. There are two available methods:
 
 - [Virtual 2FA Device](#virtual-2fa-device)
 - [Security Key](#security-key)
@@ -28,7 +28,7 @@ Scan the QR code with an app such as Google Authenticator and enter the code gen
 
 ![alt text](../../assets/profile/profile-mfa-2fa.png "Profile - MFA 2FA")
 
-If the code was successful, you will see a message telling that `The MFA is currently enabled`. At this point you can close the dialog or click the `Disable MFA` to disable this multifactor authentication.
+If the code was successful, you will see a message telling that `The MFA is currently enabled`. At this point, you can close the dialog or click the `Disable MFA` to disable this multifactor authentication.
 
 ![alt text](../../assets/profile/profile-mfa-2fa-active.png "Profile - MFA 2FA Active")
 
@@ -38,11 +38,11 @@ The following screenshot shows the login page once the username and password cre
 
 ### Security Key
 
-After choosing the Security Key as a MFA method you will have to touch your security key sensor.
+After choosing the Security Key as an MFA method, you will have to touch your security key sensor.
 
 ![alt text](../../assets/profile/profile-mfa-key-loading.png "Profile - MFA Key Loading")
 
-Once the sensor is detected the view will change showing that the fingerprint has been recognized. Click the `Confirm` button and you will have your MFA successfully enabled.
+Once the sensor is detected, the view will change showing that the fingerprint has been recognized. Click the `Confirm` button, and you will have your MFA successfully enabled.
 
 ![alt text](../../assets/profile/profile-mfa-key-detected.png "Profile - MFA Key Detected")
 
@@ -54,6 +54,6 @@ The following screenshot shows the login page once the username and password cre
 
 ![alt text](../../assets/profile/profile-mfa-key-login1.png "Profile - MFA Key Login 1")
 
-After detecting your security key, the login process will check if the fingerprint matches with the key that you added into your profile. And finally you will be logged in.
+After detecting your security key, the login process will check if the fingerprint matches with the key that you added into your profile. And finally, you will be logged in.
 
 ![alt text](../../assets/profile/profile-mfa-key-login2.png "Profile - MFA Key Login 2")

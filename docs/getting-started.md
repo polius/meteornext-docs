@@ -37,15 +37,15 @@ docker run --name meteornext -dp 1234:80 -v "$(pwd):/root/files/" meteornext/met
 :::
 ::::
 
-In this way, when you update the Meteor Next app all generated files (deployments results) will be preserved.
+In this way, when you update the Meteor Next app, all generated files (deployments results) will be preserved.
 
 **AMAZON S3**
 
-This file storage is the easiest one to manage and also it doesn't require passing the `-v` parameter to the `docker run`. To choose this option read the next [Setup](#setup) section.
+This file storage is the easiest one to manage, and also it doesn't require passing the `-v` parameter to the `docker run`. To choose this option, read the next [Setup](#setup) section.
 
 ## Setup
 
-After starting the meteornext container it's now time to configure the application.
+After starting the meteornext container, it's now time to configure the application.
 
 Open a web browser such as Firefox or Google Chrome and go to the following page:
 
@@ -55,7 +55,7 @@ http://host-ip:1234
 
 > Change `host-ip` for the host ip where the meteornext container is running.
 
-After entering the URL the Login page will be shown. At this point click the `INSTALL` button.
+After entering the URL the Login page will be shown. At this point, click the `INSTALL` button.
 
 ![alt text](../assets/introduction/install1.png "Install - Login")
 
@@ -66,7 +66,7 @@ The first step is to enter a valid license (Access Key & Secret Key).
 ![alt text](../assets/introduction/install2.png "Install - License")
 
 :::tip
-To get a license key pair go to [https://account.meteornext.io](https://account.meteornext.io) and create an account.
+To get a license key pair, go to [https://account.meteornext.io](https://account.meteornext.io) and create an account.
 :::
 
 ### MySQL Credentials
@@ -75,7 +75,7 @@ After entering a valid license, it's now time to enter the server credentials to
 
 ![alt text](../assets/introduction/install3.1.png "Install - Server")
 
-In case the database exists in the server a dialog will appear with two options:
+In case the database exists in the server, a dialog will appear with two options:
 
 - **Install Meteor Next**: Select this option if it's the first time that you install Meteor Next. This option will delete and recreate the given database with a fresh installation of Meteor Next.
 
@@ -93,7 +93,7 @@ After setting up the MySQL credentials, the next step we can decide if we want t
 ⭐ Meteor Next works better with Amazon S3.
 :::
 
-Althought Meteor can work without Amazon S3, we strongly recommend to choose this storage engine. You won't have to worry anymore about the storage left on your machine and all the ephemeral data will be preserved when you perform a [Meteor update](#update).
+Although Meteor can work without Amazon S3, we strongly recommend choosing this storage engine. You won't have to worry any more about the storage left on your machine, and all the ephemeral data will be preserved when you perform a [Meteor update](#update).
 
 The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
@@ -137,7 +137,7 @@ The last step is to create the admin account by entering the username and passwo
 
 ![alt text](../assets/introduction/install5.png "Install - Account")
 
-After finishing the installation the Login page will be shown. Enter the admin account credentials.
+After finishing the installation, the Login page will be shown. Enter the admin account credentials.
 
 ![alt text](../assets/introduction/login.png "Login")
 
@@ -165,7 +165,7 @@ docker run --name meteornext -dp 1234:80 meteornext/meteornext
 :::
 ::::
 
-At this point the latest Meteor Next version is up and working. You can access the app again typing:
+At this point, the latest Meteor Next version is up and working. You can access the app again typing:
 
 ```bash
 http://host-ip:1234
@@ -203,7 +203,7 @@ docker run --name meteornext -dp 1234:80 \
 meteornext/meteornext
 ```
 
-🚀 You can now login again with your user credentials.
+🚀 You can now log in again with your user credentials.
 
 ```bash
 http://host-ip:1234
@@ -243,8 +243,8 @@ These are all the environment variables that meteornext supports:
 | `SQL_PASS`       | The server's password |
 | `SQL_PORT`       | The server's port |
 | `SQL_DB`         | The server's database where meteornext will be stored |
-| `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured a SSL certificate pointing to the meteornext container before enabling this flag) |
-| `MAX_REQUESTS`   | The maximum number of concurrent requests. If this parameter is not set the default value is 1000. Accepted values are: 1-1000000 |
+| `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured an SSL certificate pointing to the meteornext container before enabling this flag) |
+| `MAX_REQUESTS`   | The maximum number of concurrent requests. If this parameter is not set, the default value is 1000. Accepted values are: 1-1000000 |
 
 Example:
 
