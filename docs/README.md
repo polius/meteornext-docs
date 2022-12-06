@@ -80,16 +80,3 @@ A complete MySQL Client.
 ![alt text](../assets/client/client.png "Client")
 
 <p style="text-align:center; margin-top:-10px">Client - Executing a query</p>
-
-## Security
-
-Meteor Next has been built to be secure and reliable. Here are some aspects to take into account:
-
-- Meteor Next does NOT collect any kind of data. All data stored in your database stays in your database.
-- Meteor Next can work offline without needing internet connection with one exception. The application needs connection to https://license.meteornext.io to be able to check if the license is either activated or expired.
-- Meteor Next has been audited by Ackcent to guarantee that there's no security vulnerabilities.
-- All stored user passwords created by the app are encrypted.
-- Meteor Next supports up to two MFA methods: Virtual 2FA Device and Security Keys.
-- Be able to define a customized password policy to enforce that all users have a strong password and decide the password age.
-- Be able to force that all users have the MFA enabled.
-- Be able to restrict the access to the administration panel only to a specific IP address or domain.

@@ -41,7 +41,7 @@ In this way, when you update the Meteor Next app, all generated files (deploymen
 
 **AMAZON S3**
 
-This file storage is the easiest one to manage, and also it doesn't require passing the `-v` parameter to the `docker run`. To choose this option, read the next [Setup](#setup) section.
+This file storage is the easiest one to manage, and also it doesn't require passing the extra `-v` parameter to the `docker run`.
 
 ## Setup
 
@@ -54,6 +54,8 @@ http://host-ip:1234
 ```
 
 > Change `host-ip` for the host ip where the meteornext container is running.
+
+> Change `1234` for the chosen port number.
 
 After entering the URL the Login page will be shown. At this point, click the `INSTALL` button.
 

@@ -1,12 +1,12 @@
 // .vuepress/config.js
-const { defaultTheme } = require('@vuepress/theme-default')
-const { searchPlugin } = require('@vuepress/plugin-search')
+import { defaultTheme } from '@vuepress/theme-default'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 module.exports = {
   title: 'Meteor Next - Docs',
   description: 'Meteor Next - Official Documentation',
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['link', { rel: 'icon', href: 'https://meteornext.io/assets/logo.png' }],
   ],
   plugins: [
     [
@@ -21,7 +21,7 @@ module.exports = {
     ],
   ],
   theme: defaultTheme({
-    logo: 'logo.png',
+    logo: 'https://meteornext.io/assets/logo.png',
     sidebar: {
       '/': [
         '/',
@@ -37,7 +37,7 @@ module.exports = {
             '/guides/utils',
             '/guides/client',
             '/guides/administration',
-            '/guides/results',
+            '/guides/viewer',
             '/guides/profile',
             '/guides/notifications',
             '/guides/coins',
@@ -47,4 +47,3 @@ module.exports = {
     }
   })
 }
-  

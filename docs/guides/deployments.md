@@ -239,11 +239,10 @@ The [environment](./inventory#environments) to be applied.
 A Python template to write the deployment.
 
 ```python
-#########################################################
+############################################################
 # Usage: https://docs.meteornext.io/guides/deployments#pro #
-#########################################################
+############################################################
 import json
-from collections import OrderedDict
 
 class blueprint:
     def __init__(self):
@@ -278,7 +277,7 @@ class blueprint:
 
     def str2dict(self, data):
         # Convert a string representation of a dictionary to a dictionary
-        return json.loads(data, object_pairs_hook=OrderedDict)
+        return json.loads(data)
 
     def dict2str(self, data):
         # Convert a dictionary to a string
@@ -413,7 +412,7 @@ def search(self, items, key, value):
 
 ```python
 def str2dict(self, data):
-    return json.loads(data, object_pairs_hook=OrderedDict)
+    return json.loads(data)
 ```
 
 `dict2str(...)`: This method converts a dictionary to a string.
@@ -1141,4 +1140,4 @@ If we shared the Results URL to another user, it would see the execution results
 
 ![alt text](../../assets/deployments/results-viewer.png "Deployment - Results Viewer")
 
-For more information, head to the [Meteor Results](./results) section.
+For more information, head to the [Data Viewer](./viewer) section.
