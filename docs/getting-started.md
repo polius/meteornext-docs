@@ -81,7 +81,7 @@ In case the database exists in the server, a dialog will appear with two options
 
 - **Install Meteor Next**: Select this option if it's the first time that you install Meteor Next. This option will delete and recreate the given database with a fresh installation of Meteor Next.
 
-- **Update Meteor Next**: Select this option if you are performing a Meteor Next update. This option will use the selected database that contains an existing Meteor Next installation.
+- **Update Meteor Next**: Select this option if you are performing a Meteor Next update or want to initialize the Meteor Next app to a database containing a Meteor Next installation. Use this option if you want to preserve the data in your Meteor Next database.
 
 ![alt text](../assets/introduction/install3.2.png "Install - Server (Options)")
 
@@ -109,6 +109,7 @@ The credentials needed to work are an AWS IAM user with Programmatic access with
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
+                "s3:GetObject",
                 "s3:PutObject"
             ],
             "Resource": [
@@ -132,6 +133,29 @@ Here's an example:
 - **Secret Access Key**: `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` (The AWS user Secret Access Key).
 - **Region**: `eu-west-1` (The AWS region code where the bucket resides).
 - **Bucket**: `meteornext-files` (The AWS bucket name to store all Meteor files).
+
+
+The last step is to modify the Cross-origin resource sharing (CORS) from the bucket that will store the Meteor Next files. The steps are:
+
+1) Click the bucket name in the AWS S3 service.
+2) Go to the `Permissions` tab.
+3) Scroll to the bottom to find the CORS configuration and click the `EDIT` button.
+4) Copy the following configuration and paste it to the bucket's CORS.
+
+:::: code-group
+::: code-group-item AWS S3 Bucket CORS configuration
+```json
+[
+    {
+        "AllowedMethods": ["GET"],
+        "AllowedOrigins": ["*"]
+    }
+]
+```
+:::
+::::
+
+This CORS config is needed to load the results after performing a deployment. If you want to fully secure it, replace the `["*"]` from the `AllowedOrigins` to the domain that Meteor Next will be hosted, for example `["https://meteor.yourdomain.com"]`.
 
 ### Admin Account
 
