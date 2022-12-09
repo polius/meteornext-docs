@@ -155,7 +155,22 @@ The last step is to modify the Cross-origin resource sharing (CORS) from the buc
 :::
 ::::
 
-This CORS config is needed to load the results after performing a deployment. If you want to fully secure it, replace the `["*"]` from the `AllowedOrigins` to the domain that Meteor Next will be hosted, for example `["https://meteor.yourdomain.com"]`.
+This CORS config is needed to load the results after performing a deployment.
+
+:::tip
+If you want to fully secure the CORS configuration, replace the `"*"` value from the `AllowedOrigins` to the domain that Meteor Next will be hosted.
+
+For example:
+
+```json
+[
+    {
+        "AllowedMethods": ["GET"],
+        "AllowedOrigins": ["https://meteor.yourdomain.com"]
+    }
+]
+```
+:::
 
 ### Admin Account
 
