@@ -257,7 +257,7 @@ To uninstall Meteor Next, execute the following commands:
 :::: code-group
 ::: code-group-item Stop and remove the meteornext container
 ```bash
-docker rm -f meteornext
+docker rm -f $(docker ps -q --filter name=meteornext)
 ```
 :::
 ::::
@@ -265,7 +265,7 @@ docker rm -f meteornext
 :::: code-group
 ::: code-group-item Remove the meteornext image
 ```bash
-docker rmi meteornext
+docker rmi meteornext/meteornext
 ```
 :::
 ::::
