@@ -18,7 +18,7 @@ The port number `1234` is not mandatory and can be changed to any other desired 
 
 This application supports two different file storage engines:
 
-- **[Local](#local)**: Files are stored inside the docker (into the `/root/files` folder).
+- **[Local](#local)**: Files are stored inside the docker (into the `/root/meteornext/files` folder).
 - **[Amazon S3 (preferred)](#amazon-s3)**: Files are stored in Amazon S3.
 
 :::tip
@@ -32,7 +32,7 @@ This storage engine requires passing an additional parameter (-v) when creating 
 :::: code-group
 ::: code-group-item Store all the generated files in the current working directory
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$(pwd):/root/files/" meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v "$(pwd):/root/meteornext/files/" meteornext/meteornext
 ```
 :::
 ::::
