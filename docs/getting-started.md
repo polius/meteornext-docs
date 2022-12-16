@@ -4,48 +4,33 @@
 
 Before we start, you will need to install Docker. You can find guides for your platform on the [official documentation](https://docs.docker.com/get-docker/).
 
-Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container.
+Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container. You can do it by executing the following command in your command line.
 
 ```bash
-docker run --name meteornext -dp 1234:80 meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" meteornext/meteornext
 ```
 
-The port number `1234` is not mandatory and can be changed to any other desired value.
+> The port number `1234` is not mandatory and can be changed to any other desired value.
 
----
+> The mount path `$($HOME)` is not mandatory and can be changed to any other path.
 
-### Data persistence 
+After starting the Meteor Next container you can check its status by executing the following command:
 
-This application supports two different file storage engines:
-
-- **[Local](#local)**: Files are stored inside the docker (into the `/root/meteornext/files` folder).
-- **[Amazon S3 (preferred)](#amazon-s3)**: Files are stored in Amazon S3.
-
-:::tip
-⭐ We strongly recommend using the Amazon S3 storage engine over Local
-:::
-
-**LOCAL**
-
-This storage engine requires passing an additional parameter (-v) when creating the Meteor Next container.
-
-:::: code-group
-::: code-group-item Store all the generated files in the current working directory
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$(pwd):/root/meteornext/files/" meteornext/meteornext
+docker exec $(docker ps -q --filter name=meteornext) cat /root/meteornext/status
 ```
-:::
-::::
 
-In this way, when you update the Meteor Next app, all generated files (deployments results) will be preserved.
+> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
 
-**AMAZON S3**
+And you will get the following message, meaning that you are good to to to the next step.
 
-This file storage is the easiest one to manage, and also it doesn't require passing the extra `-v` parameter to the `docker run`.
+```
+Meteor Next started. No user-defined configuration detected. Install section enabled.
+```
 
 ## Setup
 
-After starting the meteornext container, it's now time to configure the application.
+It's now time to configure the application.
 
 Open a web browser such as Firefox or Google Chrome and go to the following page:
 
@@ -79,7 +64,7 @@ After entering a valid license, it's now time to enter the server credentials to
 
 In case the database exists in the server, a dialog will appear with two options:
 
-- **Install Meteor Next**: Select this option if it's the first time that you install Meteor Next. This option will delete and recreate the given database with a fresh installation of Meteor Next.
+- **Install Meteor Next**: Select this option if it's the first time that you install Meteor Next. ⚠️This option will delete and recreate the given database with a fresh installation of Meteor Next.
 
 - **Update Meteor Next**: Select this option if you are performing a Meteor Next update or want to initialize the Meteor Next app to a database containing a Meteor Next installation. Use this option if you want to preserve the data in your Meteor Next database.
 
@@ -95,7 +80,8 @@ After setting up the MySQL credentials, the next step we can decide if we want t
 ⭐ Meteor Next works better with Amazon S3.
 :::
 
-Although Meteor can work without Amazon S3, we strongly recommend choosing this storage engine. You won't have to worry any more about the storage left on your machine, and all the ephemeral data will be preserved when you perform a [Meteor update](#update).
+
+Although Meteor can work without Amazon S3, we strongly recommend choosing this storage engine. You won't have to worry any more about not running out of disk space.
 
 The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
@@ -137,7 +123,7 @@ Here's an example:
 
 The last step is to modify the Cross-origin resource sharing (CORS) from the bucket that will store the Meteor Next files. The steps are:
 
-1) Click the bucket name in the AWS S3 service.
+1) Click the bucket name that you will use to store the Meteor Next files in the AWS S3 service.
 2) Go to the `Permissions` tab.
 3) Scroll to the bottom to find the CORS configuration and click the `EDIT` button.
 4) Copy the following configuration and paste it to the bucket's CORS.
@@ -172,6 +158,14 @@ For example:
 ```
 :::
 
+---
+
+:::tip ADDITIONAL INFORMATION
+If the Amazon S3 storage engine is enabled, mind that mounting the volume (`-v`) will no longer be necessary, since all the ephemeral data will be stored in S3.
+
+This can be useful if you want to deploy this application in an AWS ECS Fargate.
+:::
+
 ### Admin Account
 
 The last step is to create the admin account by entering the username and password.
@@ -182,42 +176,85 @@ After finishing the installation, the Login page will be shown. Enter the admin 
 
 ![alt text](../assets/introduction/login.png "Login")
 
-ENJOY!
+After loging in you will be redirected to the Meteor Next Home page. At this point the Installation has been finished and you can start using it.
 
 ![alt text](../assets/introduction/home.png "Home")
 
 ## Update
 
-To update Meteor Next, execute the following commands:
+To update Meteor Next, you can do it in two different ways:
 
-:::: code-group
-::: code-group-item Stop and remove the existing meteornext container
+* Using the graphical user interface.
+* Using the command line (recommended).
+
+### Graphical user interface (GUI)
+
+This update method consists of going through all the INSTALL steps and entering again all the License and SQL credentials.
+
+Here are the steps:
+
+**1.** Remove the existing meteornext container and image.
+
 ```bash
-docker rm -f meteornext
+docker rm -f $(docker ps -q --filter name=meteornext)
+docker rmi meteornext/meteornext
 ```
-:::
-::::
 
-:::: code-group
-::: code-group-item Create and start the meteornext container with the latest version
+**2.** Recreate and start a container of the latest Meteor Next version.
+
 ```bash
-docker run --name meteornext -dp 1234:80 meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" meteornext/meteornext
 ```
-:::
-::::
 
-At this point, the latest Meteor Next version is up and working. You can access the app again typing:
+**3.** Enter again in the application.
 
 ```bash
 http://host-ip:1234
 ```
 
-### Advanced update
+> Change `host-ip` for the host ip where the meteornext container is running.
 
-If you want to skip filling again all the `INSTALL` steps, start the meteornext container using:
+> Change `1234` for the chosen port number.
+
+**4.** Click the `INSTALL` button.
+
+![alt text](../assets/introduction/install1.png "Install - Login")
+
+**5.** Enter a valid license (Access Key & Secret Key).
+
+![alt text](../assets/introduction/install2.png "Install - License")
+
+:::tip
+If you get an error saying that this license is in use, go to [https://account.meteornext.io](https://account.meteornext.io) and unregister the license by clicking the `Unregister license` button.
+:::
+
+**6.** Enter the same server credentials that you used in the previous Meteor Next application.
+
+![alt text](../assets/introduction/install3.1.png "Install - Server")
+
+**7.** After checking the connection a dialog will open asking us which action to perform. **Choose the second option: `Update Meteor Next`**.
+
+![alt text](../assets/introduction/install3.2.png "Install - Server (Options)")
+
+Finally, we will be redirected to the login page. At this point the Update has been finished and everyone can log in again.
+
+### Command line (CLI)
+
+This update method is the recommended one and consists of starting the Meteor Next container passing all the License and SQL credentials as parameters.
+
+Here are the steps:
+
+**1.** Remove the existing meteornext container and image.
 
 ```bash
-docker run --name meteornext -dp 1234:80 \
+docker rm -f $(docker ps -q --filter name=meteornext)
+docker rmi meteornext/meteornext
+```
+
+**2.** Recreate and start a container of the latest Meteor Next version passing all the License and SQL credentials directly into the command line.
+
+```bash
+docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
 -e LIC_ACCESS_KEY="<license_access_key>" \
 -e LIC_SECRET_KEY="<license_secret_key>" \
 -e SQL_ENGINE="<sql_engine>" \
@@ -232,7 +269,7 @@ meteornext/meteornext
 Example:
 
 ```bash
-docker run --name meteornext -dp 1234:80 \
+docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
 -e LIC_ACCESS_KEY="0000-0000-0000-0000" \
 -e LIC_SECRET_KEY="12345abcd" \
 -e SQL_ENGINE="MySQL" \
@@ -244,31 +281,21 @@ docker run --name meteornext -dp 1234:80 \
 meteornext/meteornext
 ```
 
+After starting the Meteor Next container you can check its status by executing the following command:
+
+```bash
+docker exec $(docker ps -q --filter name=meteornext) cat /root/meteornext/status
+```
+
+> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
+
+If you get the following message it means that both License and SQL credencials are valid and the Meteor Next app started correctly.
+
+```
+Meteor Next started using user-defined configuration.
+```
+
 🚀 You can now log in again with your user credentials.
-
-```bash
-http://host-ip:1234
-```
-
-## Uninstall
-
-To uninstall Meteor Next, execute the following commands:
-
-:::: code-group
-::: code-group-item Stop and remove the meteornext container
-```bash
-docker rm -f $(docker ps -q --filter name=meteornext)
-```
-:::
-::::
-
-:::: code-group
-::: code-group-item Remove the meteornext image
-```bash
-docker rmi meteornext/meteornext
-```
-:::
-::::
 
 ## Docker Environment variables
 
@@ -287,12 +314,22 @@ These are all the environment variables that meteornext supports:
 | `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured an SSL certificate pointing to the meteornext container before enabling this flag) |
 | `MAX_REQUESTS`   | The maximum number of concurrent requests. If this parameter is not set, the default value is 1000. Accepted values are: 1-1000000 |
 
-Example:
+## Uninstall
+
+To uninstall Meteor Next, execute the following commands:
 
 :::: code-group
-::: code-group-item Enabling SECURE flag
+::: code-group-item Stop and remove the meteornext container
 ```bash
-docker run --name meteornext -dp 1234:80 -e SECURE=1 meteornext/meteornext
+docker rm -f $(docker ps -q --filter name=meteornext)
+```
+:::
+::::
+
+:::: code-group
+::: code-group-item Remove the meteornext image
+```bash
+docker rmi meteornext/meteornext
 ```
 :::
 ::::
