@@ -10,9 +10,7 @@ Once Docker is installed, you will need to pull the meteornext image from Docker
 docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" meteornext/meteornext
 ```
 
-> The port number `1234` is not mandatory and can be changed to any other desired value.
-
-> The mount path `$($HOME)` is not mandatory and can be changed to any other path.
+> The port number `1234` and the mount path `$($HOME)` can be changed to any other desired values.
 
 After starting the Meteor Next container you can check its status by executing the following command:
 
@@ -20,13 +18,13 @@ After starting the Meteor Next container you can check its status by executing t
 docker exec $(docker ps -q --filter name=meteornext) cat /root/meteornext/status
 ```
 
-> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
-
-And you will get the following message, meaning that you are good to to to the next step.
+And you will get the following message:
 
 ```
 Meteor Next started. No user-defined configuration detected. Install section enabled.
 ```
+
+> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
 
 ## Setup
 
@@ -42,7 +40,7 @@ http://host-ip:1234
 
 > Change `1234` for the chosen port number.
 
-After entering the URL the Login page will be shown. At this point, click the `INSTALL` button.
+After opening the Meteor Next app webpage, click the `INSTALL` button.
 
 ![alt text](../assets/introduction/install1.png "Install - Login")
 
@@ -81,7 +79,7 @@ After setting up the MySQL credentials, the next step we can decide if we want t
 :::
 
 
-Although Meteor can work without Amazon S3, we strongly recommend choosing this storage engine. You won't have to worry any more about not running out of disk space.
+Although Meteor can work without Amazon S3, we strongly recommend choosing this storage engine. You won't have to worry anymore about running out of disk space.
 
 The credentials needed to work are an AWS IAM user with Programmatic access with the following IAM Policy attached.
 
@@ -161,9 +159,9 @@ For example:
 ---
 
 :::tip ADDITIONAL INFORMATION
-If the Amazon S3 storage engine is enabled, mind that mounting the volume (`-v`) will no longer be necessary, since all the ephemeral data will be stored in S3.
+If the Amazon S3 storage engine is enabled, mind that mounting the volume (`-v`) will no longer be mandatory, since all the ephemeral data will be stored in S3.
 
-This can be useful if you want to deploy this application in an AWS ECS Fargate.
+This can be useful if you want to deploy this application in AWS ECS Fargate.
 :::
 
 ### Admin Account
@@ -257,7 +255,6 @@ docker rmi meteornext/meteornext
 docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
 -e LIC_ACCESS_KEY="<license_access_key>" \
 -e LIC_SECRET_KEY="<license_secret_key>" \
--e SQL_ENGINE="<sql_engine>" \
 -e SQL_HOST="<sql_host>" \
 -e SQL_USER="<sql_user>" \
 -e SQL_PASS="<sql_password>" \
@@ -272,7 +269,6 @@ Example:
 docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
 -e LIC_ACCESS_KEY="0000-0000-0000-0000" \
 -e LIC_SECRET_KEY="12345abcd" \
--e SQL_ENGINE="MySQL" \
 -e SQL_HOST="172.16.2.121" \
 -e SQL_USER="meteornext" \
 -e SQL_PASS="supersecret" \
@@ -287,13 +283,13 @@ After starting the Meteor Next container you can check its status by executing t
 docker exec $(docker ps -q --filter name=meteornext) cat /root/meteornext/status
 ```
 
-> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
-
 If you get the following message it means that both License and SQL credencials are valid and the Meteor Next app started correctly.
 
 ```
 Meteor Next started using user-defined configuration.
 ```
+
+> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
 
 🚀 You can now log in again with your user credentials.
 
@@ -305,12 +301,11 @@ These are all the environment variables that meteornext supports:
 | ---------------- | :---------- |
 | `LIC_ACCESS_KEY` | The license access key |
 | `LIC_SECRET_KEY` | The license secret key |
-| `SQL_ENGINE`     | The server's engine [MySQL \| Amazon Aurora (MySQL)] |
-| `SQL_HOST`       | The server's hostname  |
-| `SQL_USER`       | The server's username |
-| `SQL_PASS`       | The server's password |
-| `SQL_PORT`       | The server's port |
-| `SQL_DB`         | The server's database where meteornext will be stored |
+| `SQL_HOST`       | The MySQL server's hostname  |
+| `SQL_USER`       | The MySQL server's username |
+| `SQL_PASS`       | The MySQL server's password |
+| `SQL_PORT`       | The MySQL server's port |
+| `SQL_DB`         | The MySQL server's database where meteornext will be stored |
 | `SECURE=1`       | Force app to serve all requests over HTTPS (make sure you have previously configured an SSL certificate pointing to the meteornext container before enabling this flag) |
 | `MAX_REQUESTS`   | The maximum number of concurrent requests. If this parameter is not set, the default value is 1000. Accepted values are: 1-1000000 |
 
