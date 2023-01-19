@@ -879,6 +879,40 @@ The transaction is used to reflect the changes of each bulk query immediately as
 Being said that, it's always recommended to use transactions when executing queries that are separated in chunks (INSERTs, UPDATEs or DELETEs).
 :::
 
+### Example 14: Retrieving the last inserted id
+
+**DESCRIPTION**
+
+This example shows how to retrieve the AUTO_INCREMENT id of the last row that has been inserted or updated in a table.
+
+The following blueprint will use the following table schema for testing purposes.
+
+```sql
+CREATE TABLE table1 (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+```
+
+**BLUEPRINT**
+
+```python
+def __init__(self):
+    self.queries = {
+        '1': "INSERT INTO table1 (`name`) VALUES ('John')",
+        '2': "INSERT INTO table2 (`name`) VALUES (%s)",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    # Execute the INSERT
+    meteor.execute(query=self.queries['1'], database=database)
+    # Retrieve the last inserted id from the previous INSERT (last_inserted_id = 1)
+    last_inserted_id = meteor.execute(query="SELECT LAST_INSERTED_ID() AS 'value'", database=database)[0]['value']
+    # We could then use this value to insert it in another table
+    meteor.execute(query=self.queries['2'], args=(last_inserted_id), database=database)
+```
+
 ## Scheduled
 
 Scheduled deployments are used to program a deployment to be executed automatically in a given time.
