@@ -885,7 +885,7 @@ Being said that, it's always recommended to use transactions when executing quer
 
 This example shows how to retrieve the AUTO_INCREMENT id of the last row that has been inserted or updated in a table.
 
-The following blueprint will use the following table schema for testing purposes.
+We will be using the following table schema for testing purposes.
 
 ```sql
 CREATE TABLE table1 (
@@ -907,9 +907,9 @@ def __init__(self):
 def main(self, meteor, environment, region, server, database):
     # Execute the INSERT
     meteor.execute(query=self.queries['1'], database=database)
-    # Retrieve the last inserted id from the previous INSERT (last_inserted_id = 1)
+    # Retrieve the last inserted id from the previous INSERT (last_inserted_id = 1).
     last_inserted_id = meteor.execute(query="SELECT LAST_INSERTED_ID() AS 'value'", database=database)[0]['value']
-    # We could then use this value to insert it in another table
+    # We could now use this value to insert it in another table.
     meteor.execute(query=self.queries['2'], args=(last_inserted_id), database=database)
 ```
 
