@@ -397,6 +397,12 @@ meteor.rollback()
 meteor.is_error()
 ```
 
+`meteor.lastrowid()` This method is used to retrieve the AUTO_INCREMENT id of the last row that has been inserted or updated in a table. It returns an integer data type.
+
+```python
+meteor.lastrowid()
+```
+
 **USER DEFINED METHODS**
 
 In the last part of the blueprint, there are some methods that may be used in some deployments. Here, if you wish, you could add more methods:
@@ -908,7 +914,7 @@ def main(self, meteor, environment, region, server, database):
     # Execute the INSERT
     meteor.execute(query=self.queries['1'], database=database)
     # Retrieve the last inserted id from the previous INSERT (last_inserted_id = 1).
-    last_inserted_id = meteor.execute(query="SELECT LAST_INSERTED_ID() AS 'value'", database=database)[0]['value']
+    last_inserted_id = meteor.lastrowid()
     # We could now use this value to insert it in another table.
     meteor.execute(query=self.queries['2'], args=(last_inserted_id), database=database)
 ```
