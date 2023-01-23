@@ -919,6 +919,32 @@ def main(self, meteor, environment, region, server, database):
     meteor.execute(query=self.queries['2'], args=(last_inserted_id), database=database)
 ```
 
+### Example 15: Executing a query passing different data types parameters
+
+**DESCRIPTION**
+
+This example shows how to execute a query passing it two parameters, a string and a list.
+
+**BLUEPRINT**
+
+```python
+from itertools import repeat
+
+def __init__(self):
+    self.queries = {
+        '1': "SELECT * FROM tbl WHERE col1 = %s AND col2 IN ({})",
+    }
+
+def main(self, meteor, environment, region, server, database):
+    col1 = 'value1'
+    col2 = [1,2,3]
+    # We need to build the params for the variables that are a list.
+    params = ','.join(repeat('%s', len(col2)))
+    # Execute the SELECT.
+    meteor.execute(query=self.queries['1'].format(params), args=(col1, col2), database=database)
+    # SELECT * FROM tbl WHERE col1 = 'value1' AND col2 IN ('1','2','3')
+```
+
 ## Scheduled
 
 Scheduled deployments are used to program a deployment to be executed automatically in a given time.
