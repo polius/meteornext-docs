@@ -338,7 +338,7 @@ meteor.execute(query=self.queries['1'], args=None, database=None, auxiliary=None
 Arguments:
 
 - **query** (Required): The query to be executed.
-- **args** (Optional): To pass some escaped query parameters.
+- **args** (Optional): Parameters used with query (tuple, list, dict).
 - **database** (Optional): The database name.
 - **auxiliary** (Optional): To use an auxiliary connection.
 - **alias** (Optional): To add a query alias.
