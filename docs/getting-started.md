@@ -7,10 +7,10 @@ Before we start, you will need to install Docker. You can find guides for your p
 Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container. You can do it by executing the following command in your command line.
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext/meteornext
 ```
 
-> The port number `1234` and the mount path `$($HOME)` can be changed to any other desired values.
+> The port number `1234` and the mount path `$HOME/meteornext` can be changed to any other desired path.
 
 After starting the Meteor Next container you can check its status by executing the following command:
 
@@ -201,7 +201,7 @@ docker rmi meteornext/meteornext
 **2.** Recreate and start a container of the latest Meteor Next version.
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" meteornext/meteornext
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext/meteornext
 ```
 
 **3.** Enter again in the application.
@@ -252,7 +252,7 @@ docker rmi meteornext/meteornext
 **2.** Recreate and start a container of the latest Meteor Next version passing all the License and SQL credentials directly into the command line.
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files \
 -e LIC_ACCESS_KEY="<license_access_key>" \
 -e LIC_SECRET_KEY="<license_secret_key>" \
 -e SQL_HOST="<sql_host>" \
@@ -266,7 +266,7 @@ meteornext/meteornext
 Example:
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v "$($HOME)/meteornext:/root/meteornext/files/" \
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files \
 -e LIC_ACCESS_KEY="0000-0000-0000-0000" \
 -e LIC_SECRET_KEY="12345abcd" \
 -e SQL_HOST="172.16.2.121" \
