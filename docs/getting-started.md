@@ -10,7 +10,7 @@ Once Docker is installed, you will need to pull the meteornext image from Docker
 docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext/meteornext
 ```
 
-> The port number `1234` and the mount path `$HOME/meteornext` can be changed to any other desired path.
+> The port number `1234` and the mount path `$HOME/meteornext` can be changed to any other desired values.
 
 After starting the Meteor Next container you can check its status by executing the following command:
 
