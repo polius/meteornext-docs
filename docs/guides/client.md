@@ -36,7 +36,6 @@ Furthermore, you can also export the data in different formats:
 - SQL
 - CSV
 - JSON
-- Meteor (this format is used in the [Viewer](../viewer) section)
 
 ![alt text](../../assets/client/client-content-export.png "Client - Content Export")
 
