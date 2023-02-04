@@ -1,6 +1,6 @@
 # Introduction
 
-Meteor Next is a multiplatform web application that fully automatizes MySQL database workload operations in a Production ready environment.
+Meteor Next is a cross-platform web application that fully automatizes MySQL database workload operations in a Production ready environment.
 
 ## Features
 
