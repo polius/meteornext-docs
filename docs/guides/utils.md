@@ -98,6 +98,27 @@ The following screenshot shows this feature:
 
 ![alt text](../../assets/utils/imports/cloud/utils-imports-cloud-scan.png "Imports (Cloud) - Scan")
 
+:::tip
+
+If you get the following error by importing a .tar / .tar.gz file:
+
+```
+ERROR: ASCII '\0' appeared in the statement, but this is not allowed unless option --binary-mode is enabled and mysql is run in non-interactive mode. Set --binary-mode to 1 if ASCII '\0' is expected. Query: ''.
+```
+
+Compress your files adding the extra environment `COPYFILE_DISABLE=1` in front of your `tar` command.
+
+Example:
+
+```
+# Compress the sql folter into .tar file
+COPYFILE_DISABLE=1 tar -cvf sql.tar sql
+
+# Compress the sql folder into .tar.gz file
+COPYFILE_DISABLE=1 tar -czvf sql.tar.gz sql
+```
+:::
+
 ### Infrastructure
 
 The underlying process of the Import is similar to how the Deployments work. Basically, the import process is performed at the region where the destination server is located. In this way the delay between regions is avoided.
