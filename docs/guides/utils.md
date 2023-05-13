@@ -111,7 +111,7 @@ Compress your files adding the extra environment `COPYFILE_DISABLE=1` in front o
 Example:
 
 ```
-# Compress the sql folter into .tar file
+# Compress the sql folder into .tar file
 COPYFILE_DISABLE=1 tar -cvf sql.tar sql
 
 # Compress the sql folder into .tar.gz file
