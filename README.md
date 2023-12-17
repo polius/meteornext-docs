@@ -1,7 +1,7 @@
 ## Local Development
 
 ```console
-cd /home/ec2-user/git/meteor2-docs/docs
+cd /home/ec2-user/git/meteornext-docs/docs
 npx vuepress dev --port 3000
 ```
 
@@ -14,7 +14,7 @@ npm update
 ## Build & Deployment
 
 ```
-cd /home/ec2-user/git/meteor2-docs/docs
+cd /home/ec2-user/git/meteornext-docs/docs
 npx vuepress build
-python3 /home/ec2-user/git/meteor2-docs/transfer.py
+python3 /home/ec2-user/git/meteornext-docs/transfer.py
 ```

@@ -6,8 +6,8 @@ import mimetypes
 class transfer:
     def __init__(self):
         # S3
-        self.bucket_name = 'docs.meteor2.io'
-        self.upload_path = '/home/ec2-user/git/meteor2-docs/dist/'
+        self.bucket_name = 'docs.meteornext.io'
+        self.upload_path = '/home/ec2-user/git/meteornext-docs/dist/'
         self.s3 = boto3.client(
             service_name='s3',
             aws_access_key_id='',

@@ -4,23 +4,27 @@ There are some requirements that have to be fulfilled in order to use some secti
 
 ## Deployments
 
-This requirement only applies for regions that have the `SSH Tunnel` option enabled. All these machines that Meteor will perform an SSH tunnel to perform deployments will need to have the Glibc version >= 2.17.
+This requirement only applies for regions that have the `SSH Tunnel` option enabled. All these machines that Meteor will perform an SSH tunnel to perform deployments will need to have the following Python libraries installed.
 
-The Glibc version can be retrieved by executing the command `ldd --version` using the terminal.
+- boto3
+- requests
+- sentry_sdk
+- pymysql
+- sqlparse
+- paramiko
+- sshtunnel
 
-![alt text](../assets/requirements/requirements-ldd.png "Glibc version")
+The following commands will install these dependencies:
 
-:::tip What is glibc?
-The GNU C Library project, commonly known as glibc, is the GNU Project's implementation of the C standard library that provides the core libraries for the GNU system and GNU/Linux systems, as well as many other systems that use Linux as the kernel.
-
-Some of the most best-known OS that includes this library are:
-
-- Ubuntu
-- Debian
-- Fedora
-- OpenSUSE
-- CentOS
-:::
+```bash
+python3 -m pip install --no-cache-dir --break-system-packages boto3 && \
+python3 -m pip install --no-cache-dir --break-system-packages requests && \
+python3 -m pip install --no-cache-dir --break-system-packages sentry_sdk && \
+python3 -m pip install --no-cache-dir --break-system-packages pymysql && \
+python3 -m pip install --no-cache-dir --break-system-packages sqlparse && \
+python3 -m pip install --no-cache-dir --break-system-packages paramiko && \
+python3 -m pip install --no-cache-dir --break-system-packages sshtunnel
+```
 
 ## Monitoring
 

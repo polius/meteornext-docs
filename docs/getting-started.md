@@ -2,29 +2,39 @@
 
 ## Install
 
-Before we start, you will need to install Docker. You can find guides for your platform on the [official documentation](https://docs.docker.com/get-docker/).
+Before you begin, ensure that Docker is installed on your system. If you haven't installed Docker yet, you can find installation guides for your platform in the [official documentation](https://docs.docker.com/get-docker/).
 
-Once Docker is installed, you will need to pull the meteornext image from Docker Hub and create a container. You can do it by executing the following command in your command line.
+Once Docker is installed, follow these steps to run the Meteor Next application in a Docker container:
+
+**1.** Download the latest meteornext.tar.gz image from the [Meteor Next Releases](https://github.com/polius/meteornext-app/releases).
+
+**2.** Import the downloaded image into Docker using the following command in your command line:
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext/meteornext
+docker load -i meteornext.tar.gz
 ```
 
-> The port number `1234` and the mount path `$HOME/meteornext` can be changed to any other desired values.
+**3.** Start the Meteor Next container with the following command:
 
-After starting the Meteor Next container you can check its status by executing the following command:
+```bash
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext
+```
+
+> Note: You can change the port number and mount path to any other desired values.
+
+**4.** After starting the Meteor Next container, you can check its status by executing the following command:
 
 ```bash
 docker exec $(docker ps -q --filter name=meteornext) cat /root/meteornext/status
 ```
 
-And you will get the following message:
+You should see the following message:
 
 ```
 Meteor Next started. No user-defined configuration detected. Install section enabled.
 ```
 
-> If after executing the command you receive a message saying "No such file or directory" wait a few seconds and try again. The app may take some time to finish initializing.
+If, after executing the command, you encounter a message saying "No such file or directory," please wait a few seconds and try the command again. The application may take some time to complete its initialization process.
 
 ## Setup
 
@@ -51,7 +61,7 @@ The first step is to enter a valid license (Access Key & Secret Key).
 ![alt text](../assets/introduction/install2.png "Install - License")
 
 :::tip
-To get a license key pair, go to [https://account.meteornext.io](https://account.meteornext.io) and create an account.
+Enter "**meteornext**" in both the Access Key and Secret Key fields.
 :::
 
 ### MySQL Credentials
@@ -195,16 +205,24 @@ Here are the steps:
 
 ```bash
 docker rm -f $(docker ps -q --filter name=meteornext)
-docker rmi meteornext/meteornext
+docker rmi meteornext
 ```
 
-**2.** Recreate and start a container of the latest Meteor Next version.
+**2.** Download the latest meteornext.tar.gz image from the [Meteor Next Releases](https://github.com/polius/meteornext-app/releases).
+
+**3.** Import the downloaded image into Docker using the following command in your command line:
 
 ```bash
-docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext/meteornext
+docker load -i meteornext.tar.gz
 ```
 
-**3.** Enter again in the application.
+**4.** Start the Meteor Next container with the following command:
+
+```bash
+docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files meteornext
+```
+
+**5.** Enter again in the application.
 
 ```bash
 http://host-ip:1234
@@ -214,23 +232,23 @@ http://host-ip:1234
 
 > Change `1234` for the chosen port number.
 
-**4.** Click the `INSTALL` button.
+**6.** Click the `INSTALL` button.
 
 ![alt text](../assets/introduction/install1.png "Install - Login")
 
-**5.** Enter a valid license (Access Key & Secret Key).
+**7.** Enter a valid license (Access Key & Secret Key).
 
 ![alt text](../assets/introduction/install2.png "Install - License")
 
 :::tip
-If you get an error saying that this license is in use, go to [https://account.meteornext.io](https://account.meteornext.io) and unregister the license by clicking the `Unregister license` button.
+Enter "**meteornext**" in both the Access Key and Secret Key fields.
 :::
 
-**6.** Enter the same server credentials that you used in the previous Meteor Next application.
+**8.** Enter the same server credentials that you used in the previous Meteor Next application.
 
 ![alt text](../assets/introduction/install3.1.png "Install - Server")
 
-**7.** After checking the connection a dialog will open asking us which action to perform. **Choose the second option: `Update Meteor Next`**.
+**9.** After checking the connection a dialog will open asking us which action to perform. **Choose the second option: `Update Meteor Next`**.
 
 ![alt text](../assets/introduction/install3.2.png "Install - Server (Options)")
 
@@ -246,35 +264,43 @@ Here are the steps:
 
 ```bash
 docker rm -f $(docker ps -q --filter name=meteornext)
-docker rmi meteornext/meteornext
+docker rmi meteornext
 ```
 
-**2.** Recreate and start a container of the latest Meteor Next version passing all the License and SQL credentials directly into the command line.
+**2.** Download the latest meteornext.tar.gz image from the [Meteor Next Releases](https://github.com/polius/meteornext-app/releases).
+
+**3.** Import the downloaded image into Docker using the following command in your command line:
+
+```bash
+docker load -i meteornext.tar.gz
+```
+
+**4.** Recreate and start a container of the latest Meteor Next version passing all the License and SQL credentials directly into the command line.
 
 ```bash
 docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files \
--e LIC_ACCESS_KEY="<license_access_key>" \
--e LIC_SECRET_KEY="<license_secret_key>" \
+-e LIC_ACCESS_KEY=meteornext \
+-e LIC_SECRET_KEY=meteornext \
 -e SQL_HOST="<sql_host>" \
 -e SQL_USER="<sql_user>" \
 -e SQL_PASS="<sql_password>" \
 -e SQL_PORT="<sql_port>" \
 -e SQL_DB="<sql_database>" \
-meteornext/meteornext
+meteornext
 ```
 
 Example:
 
 ```bash
 docker run --name meteornext -dp 1234:80 -v $HOME/meteornext:/root/meteornext/files \
--e LIC_ACCESS_KEY="0000-0000-0000-0000" \
--e LIC_SECRET_KEY="12345abcd" \
+-e LIC_ACCESS_KEY=meteornext \
+-e LIC_SECRET_KEY=meteornext \
 -e SQL_HOST="172.16.2.121" \
 -e SQL_USER="meteornext" \
 -e SQL_PASS="supersecret" \
 -e SQL_PORT="3306" \
 -e SQL_DB="meteornext" \
-meteornext/meteornext
+meteornext
 ```
 
 After starting the Meteor Next container you can check its status by executing the following command:
@@ -324,7 +350,7 @@ docker rm -f $(docker ps -q --filter name=meteornext)
 :::: code-group
 ::: code-group-item Remove the meteornext image
 ```bash
-docker rmi meteornext/meteornext
+docker rmi meteornext
 ```
 :::
 ::::
